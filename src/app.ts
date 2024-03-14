@@ -1,85 +1,98 @@
-interface LatLngBounds {
-  north: number;
-  south: number;
-  east: number;
-  west: number;
+import axios from 'axios';
+import * as L from 'leaflet';
+import osmtogeojson from 'osmtogeojson';
+
+
+let map: L.Map = L.map('map');
+
+// OpenStreetMap API를 사용하여 주소로부터 위도와 경도를 가져오는 함수
+async function getCoordinates(address: string): Promise<{ latitude: number, longitude: number }> {
+  const response = await axios.get(`https://nominatim.openstreetmap.org/search?q=${address}&format=json`);
+  const { lat, lon } = response.data[0]; // 가장 상위 검색 결과
+  return { latitude: parseFloat(lat), longitude: parseFloat(lon) };
 }
 
-let map: google.maps.Map;
-const TILE_SIZE_METERS = 1000; // 1km
+// Overpass API를 사용하여 주어진 좌표 주변의 건물 및 도로 정보를 가져오는 함수
+async function getNearbyData(latitude: number, longitude: number): Promise<JSON> {
+  const query1 = `
+  [out:json];
+  way[highway]
+    (around: 100.0, 37.497952, 127.02761);
+  out geom;
+  `
+  const query = `
+  [out:json];
+  way[highway]
+    (around: 100.0, ${latitude}, ${longitude});
+  out geom;
+  `
+  const response = await axios.get(`http://overpass-api.de/api/interpreter?data=${query}`);
 
-async function initMap(): Promise<void> {
-  const { Map } = await google.maps.importLibrary("maps") as google.maps.MapsLibrary;
-  map = new Map(document.getElementById("map") as HTMLElement, {
-    center: { lat: -34.397, lng: 150.644 },
-    zoom: 8,
-  });
-
-  map.addListener('click', (event: google.maps.MapMouseEvent) => {
-    const clickedLocation = event.latLng;
-    if (clickedLocation) {
-      const bounds = getBoundsAroundLocation(clickedLocation, TILE_SIZE_METERS);
-      fetchRoadsData(bounds)
-        .then(roads => {
-          console.log('Fetched roads data:', roads);
-        })
-        .catch(error => {
-          console.error('Error fetching roads data:', error);
-        })
-    }
-  });
+  return response.data;
 }
 
-function getBoundsAroundLocation(location: google.maps.LatLng, radiusMeters: number): LatLngBounds {
-  const northEast = google.maps.geometry.spherical.computeOffset(location, radiusMeters, 0);
-  const southWest = google.maps.geometry.spherical.computeOffset(location, radiusMeters, 180);
-  
-
-  return {
-      north: northEast.lat(),
-      south: southWest.lat(),
-      east: northEast.lng(),
-      west: southWest.lng()
-  };
+// 거리 계산 함수
+function calculateDistance(lat1: number, lon1: number, lat2: number, lon2: number): number {
+  const R = 6371; // 지구의 반지름 (단위: km)
+  const dLat = toRadians(lat2 - lat1);
+  const dLon = toRadians(lon2 - lon1);
+  const a =
+    Math.sin(dLat / 2) * Math.sin(dLat / 2) +
+    Math.cos(toRadians(lat1)) * Math.cos(toRadians(lat2)) *
+    Math.sin(dLon / 2) * Math.sin(dLon / 2);
+  const c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
+  const distance = R * c; // 거리 (단위: km)
+  return distance;
 }
 
-function fetchRoadsData(bounds: LatLngBounds): Promise<google.maps.Data> {
-  return new Promise((resolve, reject) => {
-    const roads = new google.maps.Data();
+// 각도를 라디안으로 변환하는 함수
+function toRadians(degrees: number): number {
+  return degrees * (Math.PI / 180);
+}
 
-    const origin = new google.maps.LatLng(bounds.south, bounds.west);
-    const destination = new google.maps.LatLng(bounds.north, bounds.east);
+function getBoundsAroundLocation(location: L.LatLng, radiusMeters: number): L.LatLngBounds {
+  const northEast = L.latLng(location.lat + radiusMeters / 111320, location.lng + radiusMeters / (111320 * Math.cos(location.lat * Math.PI / 180)));
+  const southWest = L.latLng(location.lat - radiusMeters / 111320, location.lng - radiusMeters / (111320 * Math.cos(location.lat * Math.PI / 180)));
 
-    const roadsRequest: google.maps.DirectionsRequest = {
-      origin: origin,
-      destination: destination,
-      travelMode: google.maps.TravelMode.DRIVING
-    };
+  return new L.LatLngBounds(southWest, northEast);
+}
 
-    const directionsService = new google.maps.DirectionsService();
+// 메인 함수
+async function main() {
+  try {
+    // '오픈스트리트맵 한국'에서 서비스하는 '군사 시설 없는 오픈스트리트맵 지도 타일'을 삽입
+    L.tileLayer('https://tiles.osm.kr/hot/{z}/{x}/{y}.png', {
+      maxZoom: 19,
+      attribution: '&copy; <a href="https://openstreetmap.org/copyright">OpenStreetMap 기여자</a>'
+    }).addTo(map);
 
-    directionsService.route(roadsRequest, (response: google.maps.DirectionsResult | null, status: google.maps.DirectionsStatus) => {
-      if (status === google.maps.DirectionsStatus.OK) {
-        for (const route of response!.routes) {
-          const path: google.maps.LatLng[] = route.overview_path;
-          const poly = new google.maps.Polyline({
-            path: path,
-            geodesic: true,
-            strokeColor: '#FF0000',
-            strokeOpacity: 1.0,
-            strokeWeight: 2
-          });
-          poly.setMap(map);
-          console.log(path.map(p => p.toJSON()));
-          console.log(poly);
-          roads.addGeoJson(poly);
-        }
-        resolve(roads);
-      } else {
-        reject(new Error(`Error fetching roads data: ${status}`));
-      }
-    });
-  });
-};
+    // 주소로부터 위도와 경도를 가져옴
+    const address: string = "강남역";
+    const { latitude, longitude } = await getCoordinates(address);
 
-initMap();
+    // 위도와 경도에 따른 맵 조정
+    map.setView({lng: longitude, lat: latitude}, 17);
+    map.setMaxBounds(getBoundsAroundLocation(new L.LatLng(latitude, longitude), 100));
+
+    // 주어진 좌표 주변의 건물 및 도로 정보를 가져옴
+    const nearbyData = (await getNearbyData(latitude, longitude));
+
+    // 결과 출력
+    // const rectBounds = [[],[]];
+    // const boundaryLayer = L.rectangle(rectBounds, {
+    //   color: 'black',
+    //   wegith: 3,
+    // }).addTo(map)
+    const geoJsonData = osmtogeojson(nearbyData);
+    const roadsLayer = L.geoJSON(geoJsonData, {
+      style: (feature) => ({
+        color: 'red',
+        weight: 2,
+      })
+    }).addTo(map);
+  } catch (error) {
+    console.error("Error:", error);
+  }
+}
+
+export default main;

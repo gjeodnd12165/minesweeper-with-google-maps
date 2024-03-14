@@ -1,0 +1,1247 @@
+{
+  "version": 0.6,
+  "generator": "Overpass API 0.7.61.5 4133829e",
+  "osm3s": {
+    "timestamp_osm_base": "2024-03-14T04:57:29Z",
+    "copyright": "The data included in this document is from www.openstreetmap.org. The data is made available under ODbL."
+  },
+  "elements": [
+    {
+      "type": "way",
+      "id": 129731857,
+      "nodes": [
+        3827606147,
+        2477260916,
+        1430656077,
+        1430656075
+      ],
+      "tags": {
+        "highway": "residential",
+        "name": "강남대로92길",
+        "name:en": "Gangnam-daero 92-gil",
+        "name:ko": "강남대로92길",
+        "source:name": "survey"
+      }
+    },
+    {
+      "type": "way",
+      "id": 218864485,
+      "nodes": [
+        2624215077,
+        2477260921
+      ],
+      "tags": {
+        "access": "yes",
+        "highway": "secondary",
+        "lanes": "8",
+        "name": "강남대로",
+        "name:en": "Gangnam-daero",
+        "name:ja": "江南大路",
+        "name:ko": "강남대로",
+        "name:ko-Latn": "Gangnam-daero",
+        "ncat": "광역시도로",
+        "oneway": "yes",
+        "ref": "41",
+        "surface": "asphalt"
+      }
+    },
+    {
+      "type": "way",
+      "id": 239954010,
+      "nodes": [
+        2624215076,
+        9230557518,
+        9230557517,
+        3089780838,
+        11170694840,
+        9230542316,
+        9230557520,
+        9230557519,
+        2477260922,
+        2477260921
+      ],
+      "tags": {
+        "highway": "secondary_link",
+        "oneway": "yes"
+      }
+    },
+    {
+      "type": "way",
+      "id": 239954011,
+      "nodes": [
+        1430656071,
+        9632500761,
+        3060365833,
+        9632500728,
+        9632500729,
+        9632500735,
+        3058389833,
+        9632500730
+      ],
+      "tags": {
+        "footway": "sidewalk",
+        "highway": "footway"
+      }
+    },
+    {
+      "type": "way",
+      "id": 256787796,
+      "nodes": [
+        1430656087,
+        3827608157,
+        1430674331,
+        2477260915,
+        1430674339,
+        1430656060,
+        1430656081,
+        3058389834,
+        2477260916,
+        9632500724
+      ],
+      "tags": {
+        "highway": "residential",
+        "maxspeed": "30",
+        "name": "테헤란로1길",
+        "name:en": "Teheran-ro 1-gil",
+        "name:ko": "테헤란로1길",
+        "sidewalk": "no",
+        "source:name": "survey"
+      }
+    },
+    {
+      "type": "way",
+      "id": 263441174,
+      "nodes": [
+        9711448980,
+        9711448979,
+        571448492
+      ],
+      "tags": {
+        "highway": "residential",
+        "lanes": "2",
+        "name": "서초대로78길",
+        "name:en": "Seocho-daero 78-gil",
+        "name:ko": "서초대로78길",
+        "name:zh": "瑞草大路78街"
+      }
+    },
+    {
+      "type": "way",
+      "id": 304445274,
+      "nodes": [
+        3089780834,
+        8489896381
+      ],
+      "tags": {
+        "highway": "secondary",
+        "name": "서초대로",
+        "name:en": "Seocho-daero",
+        "name:ko": "서초대로",
+        "name:zh": "瑞草大路",
+        "oneway": "yes",
+        "ref": "90"
+      }
+    },
+    {
+      "type": "way",
+      "id": 305539406,
+      "nodes": [
+        3101791329,
+        3101785828,
+        7838702928,
+        9230557522,
+        3101785827,
+        9230542315,
+        3101785826,
+        9230557521,
+        8489896381
+      ],
+      "tags": {
+        "highway": "secondary_link",
+        "oneway": "yes",
+        "source": "survey, Bing"
+      }
+    },
+    {
+      "type": "way",
+      "id": 305662439,
+      "nodes": [
+        9632500781,
+        9632500780,
+        9632500779,
+        9632500778,
+        9632500777,
+        9632500776,
+        9632500775,
+        9632500774,
+        9632500773,
+        9632500772,
+        9632500771,
+        9632500770,
+        9632500769,
+        3072798733,
+        9632500763,
+        3103197130,
+        3103197129,
+        9632500765,
+        9632500766
+      ],
+      "tags": {
+        "footway": "sidewalk",
+        "highway": "footway",
+        "source": "survey"
+      }
+    },
+    {
+      "type": "way",
+      "id": 305662503,
+      "nodes": [
+        3827606145,
+        4946614549,
+        4946614562,
+        4946614563,
+        4946614560,
+        4946614559,
+        4946614561,
+        11183748454,
+        11183748453,
+        4946614556
+      ],
+      "tags": {
+        "highway": "service",
+        "name": "서초대로77길",
+        "name:en": "Seocho-daero 77-gil",
+        "name:ko": "서초대로77길",
+        "name:zh": "瑞草大路77街",
+        "source": "survey"
+      }
+    },
+    {
+      "type": "way",
+      "id": 305806950,
+      "nodes": [
+        3104898329,
+        9632500727,
+        1925407863
+      ],
+      "tags": {
+        "highway": "steps",
+        "source": "survey"
+      }
+    },
+    {
+      "type": "way",
+      "id": 305806951,
+      "nodes": [
+        3104898429,
+        1925407862
+      ],
+      "tags": {
+        "highway": "steps",
+        "source": "survey"
+      }
+    },
+    {
+      "type": "way",
+      "id": 305806952,
+      "nodes": [
+        3104898329,
+        3106206000,
+        3104887531,
+        3104898429
+      ],
+      "tags": {
+        "highway": "footway",
+        "layer": "-1",
+        "source": "survey",
+        "tunnel": "yes"
+      }
+    },
+    {
+      "type": "way",
+      "id": 305806953,
+      "nodes": [
+        3104887531,
+        3104887530
+      ],
+      "tags": {
+        "highway": "footway",
+        "source": "survey"
+      }
+    },
+    {
+      "type": "way",
+      "id": 305806954,
+      "nodes": [
+        3104887532,
+        1925407864
+      ],
+      "tags": {
+        "highway": "steps",
+        "source": "survey"
+      }
+    },
+    {
+      "type": "way",
+      "id": 305806955,
+      "nodes": [
+        3104898330,
+        3103183129
+      ],
+      "tags": {
+        "highway": "steps",
+        "source": "survey"
+      }
+    },
+    {
+      "type": "way",
+      "id": 305806956,
+      "nodes": [
+        3104898330,
+        7838702932,
+        3104887532
+      ],
+      "tags": {
+        "highway": "footway",
+        "layer": "-1",
+        "source": "survey",
+        "tunnel": "yes"
+      }
+    },
+    {
+      "type": "way",
+      "id": 305923837,
+      "nodes": [
+        3106205978,
+        3106206002
+      ],
+      "tags": {
+        "highway": "steps",
+        "source": "survey"
+      }
+    },
+    {
+      "type": "way",
+      "id": 305923838,
+      "nodes": [
+        3106205982,
+        1925407865
+      ],
+      "tags": {
+        "highway": "steps",
+        "source": "survey"
+      }
+    },
+    {
+      "type": "way",
+      "id": 305923841,
+      "nodes": [
+        3106205992,
+        3106205993,
+        1925407866
+      ],
+      "tags": {
+        "highway": "steps",
+        "source": "survey"
+      }
+    },
+    {
+      "type": "way",
+      "id": 305923843,
+      "nodes": [
+        3106205985,
+        3106205984,
+        3106206003
+      ],
+      "tags": {
+        "highway": "steps",
+        "source": "survey"
+      }
+    },
+    {
+      "type": "way",
+      "id": 305923844,
+      "nodes": [
+        3106205985,
+        7838702923,
+        7838702925,
+        7838702927,
+        3106205992
+      ],
+      "tags": {
+        "highway": "footway",
+        "layer": "-1",
+        "source": "survey",
+        "tunnel": "yes"
+      }
+    },
+    {
+      "type": "way",
+      "id": 305923845,
+      "nodes": [
+        3106205982,
+        3106205978
+      ],
+      "tags": {
+        "highway": "footway",
+        "layer": "-1",
+        "source": "survey",
+        "tunnel": "yes"
+      }
+    },
+    {
+      "type": "way",
+      "id": 305932240,
+      "nodes": [
+        3104898429,
+        9632500768,
+        3106300929,
+        7838702926,
+        7838702924,
+        3106300829,
+        3106205978
+      ],
+      "tags": {
+        "highway": "footway",
+        "layer": "-1",
+        "source": "survey",
+        "tunnel": "yes"
+      }
+    },
+    {
+      "type": "way",
+      "id": 305932241,
+      "nodes": [
+        3104898329,
+        3106300729,
+        3106299730,
+        3106300529,
+        3106205982
+      ],
+      "tags": {
+        "highway": "footway",
+        "layer": "-1",
+        "source": "survey",
+        "tunnel": "yes"
+      }
+    },
+    {
+      "type": "way",
+      "id": 305932242,
+      "nodes": [
+        3104898330,
+        3106300729,
+        3106300929,
+        3106205992
+      ],
+      "tags": {
+        "highway": "footway",
+        "layer": "-1",
+        "source": "survey",
+        "tunnel": "yes"
+      }
+    },
+    {
+      "type": "way",
+      "id": 305932244,
+      "nodes": [
+        3106205985,
+        3106300829,
+        7168335698,
+        7168335706,
+        3106299730,
+        5930940987,
+        3104887532
+      ],
+      "tags": {
+        "highway": "footway",
+        "layer": "-1",
+        "source": "survey",
+        "tunnel": "yes"
+      }
+    },
+    {
+      "type": "way",
+      "id": 305932246,
+      "nodes": [
+        3106300529,
+        9621002504,
+        3106300629
+      ],
+      "tags": {
+        "highway": "footway",
+        "layer": "-1",
+        "source": "survey",
+        "tunnel": "yes"
+      }
+    },
+    {
+      "type": "way",
+      "id": 375049565,
+      "nodes": [
+        2280678732,
+        9889607776,
+        8552337604,
+        2280678716,
+        4332497685,
+        2477255860,
+        2280678705,
+        7561738193,
+        2477260930,
+        9889607762,
+        2280678672,
+        9889607766,
+        2280678664,
+        2624215076
+      ],
+      "tags": {
+        "highway": "secondary",
+        "name": "테헤란로",
+        "name:en": "Teheran-ro",
+        "name:ja": "テヘラン路",
+        "name:ko": "테헤란로",
+        "ncat": "광역시도로",
+        "oneway": "yes",
+        "ref": "90"
+      }
+    },
+    {
+      "type": "way",
+      "id": 472042763,
+      "nodes": [
+        3089780830,
+        11034387027,
+        2624215077
+      ],
+      "tags": {
+        "highway": "tertiary",
+        "name": "강남대로",
+        "name:en": "Gangnam-daero",
+        "name:ja": "江南大路",
+        "name:ko": "강남대로",
+        "oneway": "yes",
+        "ref": "41",
+        "surface": "asphalt"
+      }
+    },
+    {
+      "type": "way",
+      "id": 472042764,
+      "nodes": [
+        10220955575,
+        7168335697
+      ],
+      "tags": {
+        "highway": "secondary",
+        "name": "서초대로",
+        "name:en": "Seocho-daero",
+        "name:ko": "서초대로",
+        "name:zh": "瑞草大路",
+        "oneway": "yes",
+        "ref": "90"
+      }
+    },
+    {
+      "type": "way",
+      "id": 472042765,
+      "nodes": [
+        3089780834,
+        11034387028,
+        7168335697
+      ],
+      "tags": {
+        "access": "yes",
+        "highway": "tertiary",
+        "lanes": "8",
+        "name": "강남대로",
+        "name:en": "Gangnam-daero",
+        "name:ja": "江南大路",
+        "name:ko": "강남대로",
+        "name:ko-Latn": "Gangnam-daero",
+        "ncat": "광역시도로",
+        "oneway": "yes",
+        "ref": "41",
+        "surface": "asphalt"
+      }
+    },
+    {
+      "type": "way",
+      "id": 472042766,
+      "nodes": [
+        2624215077,
+        11174484637,
+        11179628426,
+        3089780834
+      ],
+      "tags": {
+        "highway": "secondary",
+        "name": "테헤란로",
+        "name:en": "Teheran-ro",
+        "name:ja": "テヘラン 路",
+        "name:ko": "테헤란로",
+        "ncat": "광역시도로",
+        "oneway": "yes",
+        "ref": "90"
+      }
+    },
+    {
+      "type": "way",
+      "id": 480850873,
+      "nodes": [
+        8489896381,
+        3089780840
+      ],
+      "tags": {
+        "highway": "secondary",
+        "name": "서초대로",
+        "name:en": "Seocho-daero",
+        "name:ko": "서초대로",
+        "name:zh": "瑞草大路",
+        "oneway": "yes",
+        "ref": "90"
+      }
+    },
+    {
+      "type": "way",
+      "id": 494952006,
+      "nodes": [
+        7168332279,
+        11197721659,
+        11197721658,
+        11197721657,
+        11197721656,
+        4867295784,
+        4867295782,
+        11174484660,
+        11174484661,
+        11179628403,
+        11179628404,
+        11179628405,
+        11179628406,
+        11179628407,
+        11179628409,
+        11179628410,
+        11179628411,
+        11179628412,
+        11179628413,
+        11179628414,
+        11179628415,
+        11179628416,
+        11179628417,
+        11179628418,
+        11179628419,
+        11179628426,
+        11179628420,
+        11179628425,
+        11179628421,
+        11179628422,
+        11179628423,
+        11179628424,
+        11179628427,
+        11179628428,
+        11183748441,
+        11179628429
+      ],
+      "tags": {
+        "access": "no",
+        "bus": "designated",
+        "busway": "lane",
+        "highway": "service",
+        "oneway": "yes"
+      }
+    },
+    {
+      "type": "way",
+      "id": 494952007,
+      "nodes": [
+        7168335697,
+        11179628425,
+        11174484638,
+        3089780830
+      ],
+      "tags": {
+        "highway": "secondary",
+        "name": "서초대로",
+        "name:en": "Seocho-daero",
+        "name:ko": "서초대로",
+        "oneway": "yes",
+        "ref": "90"
+      }
+    },
+    {
+      "type": "way",
+      "id": 520307303,
+      "nodes": [
+        2624215076,
+        2624215077
+      ],
+      "tags": {
+        "highway": "secondary",
+        "name": "테헤란로",
+        "name:en": "Teheran-ro",
+        "name:ja": "テヘラン 路",
+        "name:ko": "테헤란로",
+        "ncat": "광역시도로",
+        "oneway": "yes",
+        "ref": "90"
+      }
+    },
+    {
+      "type": "way",
+      "id": 520307304,
+      "nodes": [
+        2477260921,
+        11170694839,
+        2280678694,
+        4867295778
+      ],
+      "tags": {
+        "access": "yes",
+        "highway": "secondary",
+        "lanes": "8",
+        "name": "강남대로",
+        "name:en": "Gangnam-daero",
+        "name:ja": "江南大路",
+        "name:ko": "강남대로",
+        "name:ko-Latn": "Gangnam-daero",
+        "ncat": "광역시도로",
+        "oneway": "yes",
+        "ref": "41",
+        "surface": "asphalt"
+      }
+    },
+    {
+      "type": "way",
+      "id": 521766174,
+      "nodes": [
+        7168335697,
+        11183748444,
+        4984342399
+      ],
+      "tags": {
+        "access": "yes",
+        "highway": "secondary",
+        "lanes": "8",
+        "name": "강남대로",
+        "name:en": "Gangnam-daero",
+        "name:ja": "江南大路",
+        "name:ko": "강남대로",
+        "name:ko-Latn": "Gangnam-daero",
+        "ncat": "광역시도로",
+        "oneway": "yes",
+        "ref": "41",
+        "surface": "asphalt"
+      }
+    },
+    {
+      "type": "way",
+      "id": 521766182,
+      "nodes": [
+        4865883250,
+        3144858729,
+        5930940986,
+        8494274559
+      ],
+      "tags": {
+        "highway": "secondary",
+        "name": "강남대로",
+        "name:en": "Gangnam-daero",
+        "name:ja": "江南大路",
+        "name:ko": "강남대로",
+        "oneway": "yes",
+        "ref": "41",
+        "surface": "asphalt"
+      }
+    },
+    {
+      "type": "way",
+      "id": 523141074,
+      "nodes": [
+        2280678683,
+        9230557523,
+        11183748446,
+        9632500767,
+        3101791329,
+        11183748445,
+        3089780834
+      ],
+      "tags": {
+        "access": "yes",
+        "highway": "secondary",
+        "lanes": "8",
+        "name": "강남대로",
+        "name:en": "Gangnam-daero",
+        "name:ja": "江南大路",
+        "name:ko": "강남대로",
+        "name:ko-Latn": "Gangnam-daero",
+        "ncat": "광역시도로",
+        "oneway": "yes",
+        "ref": "41",
+        "surface": "asphalt"
+      }
+    },
+    {
+      "type": "way",
+      "id": 628232693,
+      "nodes": [
+        5930940986,
+        3089780836
+      ],
+      "tags": {
+        "highway": "secondary_link",
+        "oneway": "yes"
+      }
+    },
+    {
+      "type": "way",
+      "id": 628232694,
+      "nodes": [
+        5930940987,
+        5930940988
+      ],
+      "tags": {
+        "highway": "footway",
+        "layer": "-1"
+      }
+    },
+    {
+      "type": "way",
+      "id": 767756203,
+      "nodes": [
+        11174484654,
+        11174484653,
+        11174484652,
+        11174484651,
+        11174484650,
+        11174484649,
+        11174484648,
+        11183748442,
+        11183748443,
+        11174484647,
+        11174484646,
+        11174484645,
+        11174484644,
+        11174484643,
+        11174484642,
+        11174484641,
+        11174484640,
+        11174484639,
+        11174484638,
+        11174484637,
+        11174478336,
+        11174478335,
+        11174478334,
+        11174478333,
+        11174478332,
+        11174478331,
+        11174478330,
+        11174478329,
+        11174478328,
+        11174478327,
+        11174478326,
+        11174478325,
+        11174478324,
+        11174478323,
+        11174478322,
+        11174478321,
+        11174478320,
+        11174478319,
+        11174478318,
+        11174478317,
+        11174478316,
+        11174478315,
+        11174478314,
+        11174484659,
+        11174478304,
+        7168332284,
+        11174478305,
+        7168332283,
+        11174478306,
+        11174478307,
+        11174478308,
+        7168332282,
+        11174478309,
+        11174478311,
+        11174478310,
+        11174478312,
+        8793714497,
+        11174478313,
+        7168335685,
+        7168332281,
+        9632566089,
+        7168332275,
+        11197721680,
+        7168332274,
+        11197721679
+      ],
+      "tags": {
+        "access": "no",
+        "bus": "designated",
+        "highway": "service",
+        "oneway": "yes"
+      }
+    },
+    {
+      "type": "way",
+      "id": 913949669,
+      "nodes": [
+        10220955575,
+        9230542314,
+        8489896380,
+        9230542312,
+        9230542313,
+        8489896379,
+        11404507355,
+        4984342399
+      ],
+      "tags": {
+        "highway": "secondary_link",
+        "oneway": "yes"
+      }
+    },
+    {
+      "type": "way",
+      "id": 914407834,
+      "nodes": [
+        8494274559,
+        9621002504,
+        8494274558,
+        8494274557,
+        9230542311,
+        8494274556,
+        8494274555
+      ],
+      "tags": {
+        "highway": "secondary_link",
+        "oneway": "yes"
+      }
+    },
+    {
+      "type": "way",
+      "id": 975332778,
+      "nodes": [
+        8494274555,
+        3089780836,
+        3144848932,
+        2280678660
+      ],
+      "tags": {
+        "highway": "secondary",
+        "name": "테헤란로",
+        "name:en": "Teheran-ro",
+        "name:ja": "テヘラン路",
+        "name:ko": "테헤란로",
+        "ncat": "광역시도로",
+        "oneway": "yes",
+        "ref": "90"
+      }
+    },
+    {
+      "type": "way",
+      "id": 990628459,
+      "nodes": [
+        8494274559,
+        3089780830
+      ],
+      "tags": {
+        "highway": "secondary",
+        "name": "강남대로",
+        "name:en": "Gangnam-daero",
+        "name:ja": "江南大路",
+        "name:ko": "강남대로",
+        "oneway": "yes",
+        "ref": "41",
+        "surface": "asphalt"
+      }
+    },
+    {
+      "type": "way",
+      "id": 990628460,
+      "nodes": [
+        3089780830,
+        8494274555
+      ],
+      "tags": {
+        "highway": "secondary",
+        "name": "테헤란로",
+        "name:en": "Teheran-ro",
+        "name:ja": "テヘラン路",
+        "name:ko": "테헤란로",
+        "ncat": "광역시도로",
+        "oneway": "yes",
+        "ref": "90"
+      }
+    },
+    {
+      "type": "way",
+      "id": 1046181895,
+      "nodes": [
+        9621002494,
+        9621002496,
+        9621002497,
+        9621002498,
+        9621002499,
+        9621002500,
+        9711448947,
+        9621002501
+      ],
+      "tags": {
+        "footway": "sidewalk",
+        "highway": "footway"
+      }
+    },
+    {
+      "type": "way",
+      "id": 1046181896,
+      "nodes": [
+        9621002501,
+        9621002503,
+        9621002502
+      ],
+      "tags": {
+        "crossing": "marked",
+        "footway": "crossing",
+        "highway": "footway"
+      }
+    },
+    {
+      "type": "way",
+      "id": 1047544523,
+      "nodes": [
+        9632500724,
+        1430656071
+      ],
+      "tags": {
+        "highway": "footway",
+        "maxspeed": "30",
+        "name": "테헤란로1길",
+        "name:en": "Teheran-ro 1-gil",
+        "name:ko": "테헤란로1길",
+        "source:name": "survey"
+      }
+    },
+    {
+      "type": "way",
+      "id": 1047544524,
+      "nodes": [
+        1925407863,
+        9632500731,
+        9632500732,
+        9632500733,
+        9632500734,
+        9632500735
+      ],
+      "tags": {
+        "footway": "sidewalk",
+        "highway": "footway"
+      }
+    },
+    {
+      "type": "way",
+      "id": 1047544535,
+      "nodes": [
+        3827606147,
+        9632500758,
+        9632500759,
+        9632500760,
+        9632500761
+      ],
+      "tags": {
+        "highway": "footway"
+      }
+    },
+    {
+      "type": "way",
+      "id": 1047544536,
+      "nodes": [
+        1925407866,
+        9632500762,
+        9632500763
+      ],
+      "tags": {
+        "footway": "sidewalk",
+        "highway": "footway"
+      }
+    },
+    {
+      "type": "way",
+      "id": 1047544537,
+      "nodes": [
+        1925407862,
+        9632500775
+      ],
+      "tags": {
+        "footway": "sidewalk",
+        "highway": "footway"
+      }
+    },
+    {
+      "type": "way",
+      "id": 1047544538,
+      "nodes": [
+        3827606145,
+        3103197129
+      ],
+      "tags": {
+        "footway": "sidewalk",
+        "highway": "footway"
+      }
+    },
+    {
+      "type": "way",
+      "id": 1047544539,
+      "nodes": [
+        9621002502,
+        9711448978,
+        9632500783,
+        3106206003
+      ],
+      "tags": {
+        "footway": "sidewalk",
+        "highway": "footway"
+      }
+    },
+    {
+      "type": "way",
+      "id": 1056882896,
+      "nodes": [
+        9711448928,
+        9711448941,
+        9711448942,
+        9711448949,
+        9711448943,
+        9711448944,
+        9711448945,
+        9711448946,
+        9711448948,
+        9711448927,
+        9711448928
+      ],
+      "tags": {
+        "area": "yes",
+        "highway": "pedestrian"
+      }
+    },
+    {
+      "type": "way",
+      "id": 1056882899,
+      "nodes": [
+        9711448979,
+        9632500791,
+        9711448959,
+        9711448960,
+        9711448961,
+        9711448962,
+        9711448963,
+        9711448964,
+        9711448965,
+        9711448966,
+        9711448967,
+        9711448968,
+        9711448969,
+        9711448970,
+        9711448971,
+        9711448972,
+        9711448973,
+        9711448974,
+        9711448975,
+        9711448976,
+        9711448977,
+        9711448978
+      ],
+      "tags": {
+        "footway": "sidewalk",
+        "highway": "footway"
+      }
+    },
+    {
+      "type": "way",
+      "id": 1056882900,
+      "nodes": [
+        10220955579,
+        9621002503,
+        9711448980
+      ],
+      "tags": {
+        "highway": "residential",
+        "lanes": "1",
+        "name": "서초대로78길",
+        "name:en": "Seocho-daero 78-gil",
+        "name:ko": "서초대로78길",
+        "name:zh": "瑞草大路78街",
+        "oneway": "yes"
+      }
+    },
+    {
+      "type": "way",
+      "id": 1117538957,
+      "nodes": [
+        10220955574,
+        11245176928,
+        10220955576,
+        10220955577,
+        10220955578,
+        10220955579,
+        10220955575
+      ],
+      "tags": {
+        "highway": "secondary",
+        "name": "서초대로",
+        "name:en": "Seocho-daero",
+        "name:ko": "서초대로",
+        "name:zh": "瑞草大路",
+        "oneway": "yes",
+        "ref": "90"
+      }
+    },
+    {
+      "type": "way",
+      "id": 1206937178,
+      "nodes": [
+        11183597713,
+        11183597718,
+        11183597719,
+        1430656071
+      ],
+      "tags": {
+        "footway": "sidewalk",
+        "highway": "footway"
+      }
+    },
+    {
+      "type": "way",
+      "id": 1206937179,
+      "nodes": [
+        11183597718,
+        11183597720,
+        3103183129
+      ],
+      "tags": {
+        "footway": "sidewalk",
+        "highway": "footway"
+      }
+    },
+    {
+      "type": "way",
+      "id": 1229817205,
+      "nodes": [
+        4984342399,
+        9230542310
+      ],
+      "tags": {
+        "access": "yes",
+        "highway": "secondary",
+        "lanes": "8",
+        "name": "강남대로",
+        "name:en": "Gangnam-daero",
+        "name:ja": "江南大路",
+        "name:ko": "강남대로",
+        "name:ko-Latn": "Gangnam-daero",
+        "ncat": "광역시도로",
+        "oneway": "yes",
+        "ref": "41",
+        "surface": "asphalt"
+      }
+    }
+  ]
+}
