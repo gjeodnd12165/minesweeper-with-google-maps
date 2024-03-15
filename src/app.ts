@@ -13,17 +13,11 @@ async function getCoordinates(address: string): Promise<{ latitude: number, long
 }
 
 // Overpass API를 사용하여 주어진 좌표 주변의 건물 및 도로 정보를 가져오는 함수
-async function getNearbyData(latitude: number, longitude: number): Promise<JSON> {
-  const query1 = `
-  [out:json];
-  way[highway]
-    (around: 100.0, 37.497952, 127.02761);
-  out geom;
-  `
+async function getNearbyData(rectBounds: L.LatLngBounds): Promise<JSON> {
   const query = `
   [out:json];
   way[highway]
-    (around: 100.0, ${latitude}, ${longitude});
+    (${rectBounds.getSouth()}, ${rectBounds.getWest()}, ${rectBounds.getNorth()}, ${rectBounds.getEast()});
   out geom;
   `
   const response = await axios.get(`http://overpass-api.de/api/interpreter?data=${query}`);
@@ -69,24 +63,31 @@ async function main() {
     // 주소로부터 위도와 경도를 가져옴
     const address: string = "강남역";
     const { latitude, longitude } = await getCoordinates(address);
+    const rectBounds: L.LatLngBounds = getBoundsAroundLocation(new L.LatLng(latitude, longitude), 300);
 
     // 위도와 경도에 따른 맵 조정
     map.setView({lng: longitude, lat: latitude}, 17);
-    map.setMaxBounds(getBoundsAroundLocation(new L.LatLng(latitude, longitude), 100));
+    map.setMaxBounds(rectBounds);
 
     // 주어진 좌표 주변의 건물 및 도로 정보를 가져옴
-    const nearbyData = (await getNearbyData(latitude, longitude));
+    const nearbyData = (await getNearbyData(rectBounds));
 
     // 결과 출력
-    // const rectBounds = [[],[]];
-    // const boundaryLayer = L.rectangle(rectBounds, {
-    //   color: 'black',
-    //   wegith: 3,
-    // }).addTo(map)
-    const geoJsonData = osmtogeojson(nearbyData);
+    
+    const boundaryLayer = L.rectangle(rectBounds, {
+      color: 'white',
+      weight: 3,
+    }).addTo(map)
+    console.log(rectBounds);
+    let geoJsonData = osmtogeojson(nearbyData, {
+      flatProperties: true,
+      polygonFeatures: ['way']
+    });
+    
+    console.log(geoJsonData);
     const roadsLayer = L.geoJSON(geoJsonData, {
       style: (feature) => ({
-        color: 'red',
+        color: `#${Math.round(Math.random() * 0xffffff).toString(16)}`,
         weight: 2,
       })
     }).addTo(map);
