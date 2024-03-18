@@ -1,0 +1,1113 @@
+{
+  "type": "FeatureCollection",
+  "features": [
+      {
+          "type": "Feature",
+          "properties": {
+              "bus": "yes",
+              "highway": "bus_stop",
+              "name": "수협서초지점",
+              "name:en": "Suhyup Seocho Branch",
+              "name:ko": "수협서초지점",
+              "name:ko-Latn": "Suhyeopseochojijeom",
+              "public_transport": "platform",
+              "ref": "22131",
+              "route_ref": "145;4424;144;3412;340;4312;4422",
+              "source": "공공데이터포털",
+              "source:date": "2021/09/16 07:31:03",
+              "id": "node/357826011"
+          },
+          "geometry": {
+              "type": "Point",
+              "coordinates": [
+                  127.029385,
+                  37.493517
+              ]
+          }
+      },
+      {
+          "type": "Feature",
+          "properties": {
+              "bus": "yes",
+              "highway": "bus_stop",
+              "name": "신분당선강남역(중)",
+              "name:en": "Gangnam Station (Center Lane)",
+              "name:ko": "신분당선강남역(중)",
+              "name:ko-Latn": "Gangnamyeok",
+              "public_transport": "platform",
+              "ref": "22009",
+              "source": "공공데이터포털",
+              "source:date": "2021/09/16 07:31:03",
+              "id": "node/357839304"
+          },
+          "geometry": {
+              "type": "Point",
+              "coordinates": [
+                  127.0285264,
+                  37.4959486
+              ]
+          }
+      },
+      {
+          "type": "Feature",
+          "properties": {
+              "bench": "yes",
+              "bin": "yes",
+              "bus": "yes",
+              "highway": "bus_stop",
+              "lit": "yes",
+              "name": "신분당선강남역(중)",
+              "name:en": "Gangnam Station (Shinbundang Line)",
+              "name:ko": "신분당선강남역(중)",
+              "name:ko-Latn": "Gangnamyeok",
+              "public_transport": "platform",
+              "ref": "22010",
+              "shelter": "yes",
+              "source": "공공데이터포털",
+              "source:date": "2021/09/16 07:31:03",
+              "tactile_paving": "yes",
+              "id": "node/357841137"
+          },
+          "geometry": {
+              "type": "Point",
+              "coordinates": [
+                  127.0290585,
+                  37.4949684
+              ]
+          }
+      },
+      {
+          "type": "Feature",
+          "properties": {
+              "bus": "yes",
+              "highway": "bus_stop",
+              "name": "서초청소년도서관",
+              "name:en": "Seocho Youth Library",
+              "name:ko": "서초청소년도서관",
+              "name:ko-Latn": "Seochocheongsonyeondoseogwan",
+              "public_transport": "platform",
+              "ref": "22120",
+              "route_ref": "350;643;8541;서초03",
+              "source": "공공데이터포털",
+              "source:date": "2021/09/16 07:31:03",
+              "id": "node/357898437"
+          },
+          "geometry": {
+              "type": "Point",
+              "coordinates": [
+                  127.0288454,
+                  37.4926008
+              ]
+          }
+      },
+      {
+          "type": "Feature",
+          "properties": {
+              "name": "샹그리아모텔",
+              "name:en": "Syanggeuria Motel",
+              "name:ko": "샹그리아모텔",
+              "name:ko-Latn": "Syanggeuriamotel",
+              "ncat": "모텔",
+              "source": "http://kr.open.gugi.yahoo.com",
+              "tourism": "motel",
+              "id": "node/368702838"
+          },
+          "geometry": {
+              "type": "Point",
+              "coordinates": [
+                  127.0303698,
+                  37.4942333
+              ]
+          }
+      },
+      {
+          "type": "Feature",
+          "properties": {
+              "amenity": "dentist",
+              "healthcare": "dentist",
+              "name": "룡플란트치과 강남점",
+              "name:en": "Ryongpeullanteu Dental Gangnamjeom",
+              "name:ko": "룡플란트치과 강남점",
+              "name:ko-Latn": "Ryongpeullanteuchigwa Gangnamjeom",
+              "ncat": "치과",
+              "id": "node/368738388"
+          },
+          "geometry": {
+              "type": "Point",
+              "coordinates": [
+                  127.02813,
+                  37.49452
+              ]
+          }
+      },
+      {
+          "type": "Feature",
+          "properties": {
+              "addr:city": "서울특별시 강남구",
+              "addr:housenumber": "46",
+              "addr:postcode": "06241",
+              "addr:street": "테헤란로4길",
+              "amenity": "post_office",
+              "name": "서울역삼우성우편취급국",
+              "name:en": "Seoul Yeoksamuseong Postal Agency",
+              "name:ko": "서울역삼우성우편취급국",
+              "name:ko-Latn": "Seoulyeoksamuseongupyeonchwigeupguk",
+              "ncat": "우체국",
+              "source": "http://kr.open.gugi.yahoo.com",
+              "id": "node/368876095"
+          },
+          "geometry": {
+              "type": "Point",
+              "coordinates": [
+                  127.0307131,
+                  37.4954802
+              ]
+          }
+      },
+      {
+          "type": "Feature",
+          "properties": {
+              "name": "호텔쿤타",
+              "name:en": "Hotel Kunta",
+              "name:ko": "호텔쿤타",
+              "name:ko-Latn": "Hotelkunta",
+              "ncat": "호텔",
+              "source": "http://kr.open.gugi.yahoo.com",
+              "tourism": "hotel",
+              "id": "node/368952136"
+          },
+          "geometry": {
+              "type": "Point",
+              "coordinates": [
+                  127.029879,
+                  37.495845
+              ]
+          }
+      },
+      {
+          "type": "Feature",
+          "properties": {
+              "amenity": "bank",
+              "brand": "NH농협은행",
+              "brand:en": "NH Bank",
+              "brand:ko": "NH농협은행",
+              "brand:wikidata": "Q15283673",
+              "brand:wikipedia": "ko:NH농협은행",
+              "name": "NH농협은행",
+              "name:en": "NH Bank",
+              "name:ko": "NH농협은행",
+              "id": "node/2102390485"
+          },
+          "geometry": {
+              "type": "Point",
+              "coordinates": [
+                  127.0292631,
+                  37.4950489
+              ]
+          }
+      },
+      {
+          "type": "Feature",
+          "properties": {
+              "amenity": "bank",
+              "brand": "KB국민은행",
+              "brand:en": "KB Kookmin Bank",
+              "brand:ko": "KB국민은행",
+              "brand:wikidata": "Q496606",
+              "brand:wikipedia": "en:Kookmin Bank",
+              "name": "KB국민은행",
+              "name:en": "KB Kookmin Bank",
+              "name:ko": "KB국민은행",
+              "id": "node/2102390498"
+          },
+          "geometry": {
+              "type": "Point",
+              "coordinates": [
+                  127.0297566,
+                  37.494402
+              ]
+          }
+      },
+      {
+          "type": "Feature",
+          "properties": {
+              "amenity": "bank",
+              "brand": "KB국민은행",
+              "brand:en": "KB Kookmin Bank",
+              "brand:ko": "KB국민은행",
+              "brand:wikidata": "Q496606",
+              "brand:wikipedia": "en:Kookmin Bank",
+              "name": "KB국민은행",
+              "name:en": "KB Kookmin Bank",
+              "name:ko": "KB국민은행",
+              "id": "node/2103870391"
+          },
+          "geometry": {
+              "type": "Point",
+              "coordinates": [
+                  127.0298286,
+                  37.4924872
+              ]
+          }
+      },
+      {
+          "type": "Feature",
+          "properties": {
+              "amenity": "bank",
+              "name": "한국스탠다드차타드은행",
+              "id": "node/2103870413"
+          },
+          "geometry": {
+              "type": "Point",
+              "coordinates": [
+                  127.0286477,
+                  37.4950419
+              ]
+          }
+      },
+      {
+          "type": "Feature",
+          "properties": {
+              "amenity": "bank",
+              "brand": "하나은행",
+              "brand:en": "KEB Hana Bank",
+              "brand:ko": "하나은행",
+              "brand:wikidata": "Q484047",
+              "brand:wikipedia": "en:Hana Bank",
+              "name": "하나은행",
+              "name:en": "KEB Hana Bank",
+              "name:ko": "하나은행",
+              "id": "node/2103870433"
+          },
+          "geometry": {
+              "type": "Point",
+              "coordinates": [
+                  127.029074,
+                  37.494207
+              ]
+          }
+      },
+      {
+          "type": "Feature",
+          "properties": {
+              "amenity": "bank",
+              "name": "수협",
+              "id": "node/2103870483"
+          },
+          "geometry": {
+              "type": "Point",
+              "coordinates": [
+                  127.0289266,
+                  37.4945482
+              ]
+          }
+      },
+      {
+          "type": "Feature",
+          "properties": {
+              "amenity": "bank",
+              "brand": "IBK기업은행",
+              "brand:en": "Industrial Bank of Korea",
+              "brand:ko": "IBK기업은행",
+              "brand:wikidata": "Q483855",
+              "brand:wikipedia": "en:Industrial Bank of Korea",
+              "name": "IBK기업은행",
+              "name:en": "Industrial Bank of Korea",
+              "name:ko": "IBK기업은행",
+              "id": "node/2103870498"
+          },
+          "geometry": {
+              "type": "Point",
+              "coordinates": [
+                  127.0292914,
+                  37.4939013
+              ]
+          }
+      },
+      {
+          "type": "Feature",
+          "properties": {
+              "amenity": "bank",
+              "brand": "우리은행",
+              "brand:en": "Woori Bank",
+              "brand:ko": "우리은행",
+              "brand:wikidata": "Q494369",
+              "brand:wikipedia": "en:Woori Bank",
+              "name": "우리은행",
+              "name:en": "Woori Bank",
+              "name:ko": "우리은행",
+              "id": "node/2103874275"
+          },
+          "geometry": {
+              "type": "Point",
+              "coordinates": [
+                  127.0286477,
+                  37.4952632
+              ]
+          }
+      },
+      {
+          "type": "Feature",
+          "properties": {
+              "building": "yes",
+              "name": "삼성전자서초사옥",
+              "id": "node/2103996455"
+          },
+          "geometry": {
+              "type": "Point",
+              "coordinates": [
+                  127.0287979,
+                  37.4948036
+              ]
+          }
+      },
+      {
+          "type": "Feature",
+          "properties": {
+              "building": "office",
+              "name": "아주산업본사",
+              "id": "node/2103996462"
+          },
+          "geometry": {
+              "type": "Point",
+              "coordinates": [
+                  127.0290983,
+                  37.4942418
+              ]
+          }
+      },
+      {
+          "type": "Feature",
+          "properties": {
+              "amenity": "restaurant",
+              "cuisine": "regional",
+              "name": "곤들애",
+              "id": "node/3198796982"
+          },
+          "geometry": {
+              "type": "Point",
+              "coordinates": [
+                  127.0285484,
+                  37.4936087
+              ]
+          }
+      },
+      {
+          "type": "Feature",
+          "properties": {
+              "bus": "yes",
+              "highway": "bus_stop",
+              "name": "강남역티월드",
+              "name:en": "Gangnam Station, T-World",
+              "name:ko": "강남역티월드",
+              "public_transport": "platform",
+              "ref": "22654",
+              "source": "공공데이터포털",
+              "source:date": "2021/09/16 07:31:03",
+              "id": "node/3721274226"
+          },
+          "geometry": {
+              "type": "Point",
+              "coordinates": [
+                  127.028875,
+                  37.494653
+              ]
+          }
+      },
+      {
+          "type": "Feature",
+          "properties": {
+              "bus": "yes",
+              "highway": "bus_stop",
+              "name": "강남역도시에빛",
+              "name:en": "Gangnam Station, City Light",
+              "name:ko": "강남역도시에빛",
+              "public_transport": "platform",
+              "ref": "31076",
+              "source": "공공데이터포털",
+              "source:date": "2021/09/16 04:01:02",
+              "id": "node/3721274227"
+          },
+          "geometry": {
+              "type": "Point",
+              "coordinates": [
+                  127.028977,
+                  37.494827
+              ]
+          }
+      },
+      {
+          "type": "Feature",
+          "properties": {
+              "bus": "yes",
+              "highway": "bus_stop",
+              "name": "강남역우리은행",
+              "name:en": "Gangnam Station, Woori Bank",
+              "public_transport": "platform",
+              "id": "node/3721274228"
+          },
+          "geometry": {
+              "type": "Point",
+              "coordinates": [
+                  127.0284911,
+                  37.4955777
+              ]
+          }
+      },
+      {
+          "type": "Feature",
+          "properties": {
+              "bus": "yes",
+              "highway": "bus_stop",
+              "name": "강남역나라빌딩앞",
+              "public_transport": "platform",
+              "id": "node/3721274229"
+          },
+          "geometry": {
+              "type": "Point",
+              "coordinates": [
+                  127.0284103,
+                  37.4957634
+              ]
+          }
+      },
+      {
+          "type": "Feature",
+          "properties": {
+              "amenity": "fast_food",
+              "brand": "Burger King",
+              "brand:wikidata": "Q177054",
+              "brand:wikipedia": "en:Burger King",
+              "cuisine": "burger",
+              "name": "Burger King",
+              "takeaway": "yes",
+              "id": "node/4322641293"
+          },
+          "geometry": {
+              "type": "Point",
+              "coordinates": [
+                  127.0289915,
+                  37.495352
+              ]
+          }
+      },
+      {
+          "type": "Feature",
+          "properties": {
+              "amenity": "bank",
+              "brand": "우리은행",
+              "brand:en": "Woori Bank",
+              "brand:ko": "우리은행",
+              "brand:wikidata": "Q494369",
+              "brand:wikipedia": "en:Woori Bank",
+              "name": "우리은행",
+              "name:en": "Woori Bank",
+              "name:ko": "우리은행",
+              "id": "node/5593759222"
+          },
+          "geometry": {
+              "type": "Point",
+              "coordinates": [
+                  127.0281809,
+                  37.4957387
+              ]
+          }
+      },
+      {
+          "type": "Feature",
+          "properties": {
+              "amenity": "dentist",
+              "healthcare": "dentist",
+              "name": "미켈란치과의원 강남점",
+              "id": "node/5593759223"
+          },
+          "geometry": {
+              "type": "Point",
+              "coordinates": [
+                  127.0289504,
+                  37.4960083
+              ]
+          }
+      },
+      {
+          "type": "Feature",
+          "properties": {
+              "amenity": "restaurant",
+              "name": "삼화진대감 (이영자맛집, 설렁탕 차돌삼합)",
+              "id": "node/5620952221"
+          },
+          "geometry": {
+              "type": "Point",
+              "coordinates": [
+                  127.0287351,
+                  37.493366
+              ]
+          }
+      },
+      {
+          "type": "Feature",
+          "properties": {
+              "amenity": "restaurant",
+              "name": "Eulmildae Gangnam, cold noodles",
+              "id": "node/7207559185"
+          },
+          "geometry": {
+              "type": "Point",
+              "coordinates": [
+                  127.0303745,
+                  37.4954614
+              ]
+          }
+      },
+      {
+          "type": "Feature",
+          "properties": {
+              "amenity": "restaurant",
+              "name": "Eulmildae Gangnam cold noodles",
+              "id": "node/7207566886"
+          },
+          "geometry": {
+              "type": "Point",
+              "coordinates": [
+                  127.0303627,
+                  37.4954727
+              ]
+          }
+      },
+      {
+          "type": "Feature",
+          "properties": {
+              "amenity": "restaurant",
+              "name": "Sudae soup, blood sausage",
+              "id": "node/7207577685"
+          },
+          "geometry": {
+              "type": "Point",
+              "coordinates": [
+                  127.0314485,
+                  37.4950293
+              ]
+          }
+      },
+      {
+          "type": "Feature",
+          "properties": {
+              "amenity": "restaurant",
+              "name": "Modern Chix",
+              "id": "node/7207587185"
+          },
+          "geometry": {
+              "type": "Point",
+              "coordinates": [
+                  127.0316451,
+                  37.4955214
+              ]
+          }
+      },
+      {
+          "type": "Feature",
+          "properties": {
+              "amenity": "restaurant",
+              "name": "sundae soups blood sausage",
+              "id": "node/7207608487"
+          },
+          "geometry": {
+              "type": "Point",
+              "coordinates": [
+                  127.0314021,
+                  37.49526
+              ]
+          }
+      },
+      {
+          "type": "Feature",
+          "properties": {
+              "amenity": "restaurant",
+              "name": "Modern Chicken",
+              "id": "node/7207608986"
+          },
+          "geometry": {
+              "type": "Point",
+              "coordinates": [
+                  127.031606,
+                  37.495564
+              ]
+          }
+      },
+      {
+          "type": "Feature",
+          "properties": {
+              "amenity": "restaurant",
+              "name": "Tuna work shop",
+              "id": "node/7208087786"
+          },
+          "geometry": {
+              "type": "Point",
+              "coordinates": [
+                  127.0309102,
+                  37.495087
+              ]
+          }
+      },
+      {
+          "type": "Feature",
+          "properties": {
+              "amenity": "restaurant",
+              "name": "Ha bang Samgyetang Ginseng Chix",
+              "id": "node/7208119985"
+          },
+          "geometry": {
+              "type": "Point",
+              "coordinates": [
+                  127.0302098,
+                  37.4935453
+              ]
+          }
+      },
+      {
+          "type": "Feature",
+          "properties": {
+              "amenity": "restaurant",
+              "name": "Hanbang Samgaetang",
+              "id": "node/7211107185"
+          },
+          "geometry": {
+              "type": "Point",
+              "coordinates": [
+                  127.0302024,
+                  37.4935032
+              ]
+          }
+      },
+      {
+          "type": "Feature",
+          "properties": {
+              "amenity": "restaurant",
+              "name": "Chicken Baengi",
+              "id": "node/7213600185"
+          },
+          "geometry": {
+              "type": "Point",
+              "coordinates": [
+                  127.0313206,
+                  37.4948248
+              ]
+          }
+      },
+      {
+          "type": "Feature",
+          "properties": {
+              "amenity": "restaurant",
+              "name": "Chix Baengi",
+              "id": "node/7217589585"
+          },
+          "geometry": {
+              "type": "Point",
+              "coordinates": [
+                  127.0313476,
+                  37.4948314
+              ]
+          }
+      },
+      {
+          "type": "Feature",
+          "properties": {
+              "amenity": "restaurant",
+              "name": "Jeju Montrak, Bk pig Bbq",
+              "id": "node/7221772385"
+          },
+          "geometry": {
+              "type": "Point",
+              "coordinates": [
+                  127.0306499,
+                  37.4950118
+              ]
+          }
+      },
+      {
+          "type": "Feature",
+          "properties": {
+              "amenity": "restaurant",
+              "name": "Jangseoneun Nal, Bossam, Gangnam",
+              "id": "node/7221968785"
+          },
+          "geometry": {
+              "type": "Point",
+              "coordinates": [
+                  127.0313944,
+                  37.4954084
+              ]
+          }
+      },
+      {
+          "type": "Feature",
+          "properties": {
+              "amenity": "restaurant",
+              "name": "jeyu Montrak Bk pig bbq",
+              "id": "node/7222001485"
+          },
+          "geometry": {
+              "type": "Point",
+              "coordinates": [
+                  127.0306304,
+                  37.4950052
+              ]
+          }
+      },
+      {
+          "type": "Feature",
+          "properties": {
+              "amenity": "restaurant",
+              "name": "Jangseoneun nal,Bossam",
+              "id": "node/7222067085"
+          },
+          "geometry": {
+              "type": "Point",
+              "coordinates": [
+                  127.0314201,
+                  37.4954009
+              ]
+          }
+      },
+      {
+          "type": "Feature",
+          "properties": {
+              "addr:city": "서초구",
+              "addr:housenumber": "343",
+              "addr:postcode": "06626",
+              "addr:street": "강남대로",
+              "level": "3",
+              "name": "왓챠",
+              "name:en": "Watcha Inc.",
+              "name:ko": "왓챠",
+              "office": "company",
+              "id": "node/7255263067"
+          },
+          "geometry": {
+              "type": "Point",
+              "coordinates": [
+                  127.0292568,
+                  37.4935182
+              ]
+          }
+      },
+      {
+          "type": "Feature",
+          "properties": {
+              "bus": "yes",
+              "highway": "bus_stop",
+              "name": "강남역",
+              "name:en": "Gangnam Station",
+              "name:ko": "강남역",
+              "public_transport": "platform",
+              "ref": "23617",
+              "source": "공공데이터포털",
+              "source:date": "2021/09/16 07:31:03",
+              "id": "node/9153615886"
+          },
+          "geometry": {
+              "type": "Point",
+              "coordinates": [
+                  127.0296699,
+                  37.4942635
+              ]
+          }
+      },
+      {
+          "type": "Feature",
+          "properties": {
+              "bus": "yes",
+              "highway": "bus_stop",
+              "name": "우성아파트사거리",
+              "name:en": "Woosung Apartments Intersection",
+              "name:ko": "우성아파트사거리",
+              "public_transport": "platform",
+              "ref": "22869",
+              "source": "공공데이터포털",
+              "source:date": "2021/09/16 07:31:03",
+              "id": "node/9311286024"
+          },
+          "geometry": {
+              "type": "Point",
+              "coordinates": [
+                  127.0293529,
+                  37.4936247
+              ]
+          }
+      },
+      {
+          "type": "Feature",
+          "properties": {
+              "bus": "yes",
+              "highway": "bus_stop",
+              "name": "강남역",
+              "name:en": "Gangnam Station",
+              "name:ko": "강남역",
+              "public_transport": "platform",
+              "ref": "32043",
+              "source": "공공데이터포털",
+              "source:date": "2021/09/16 04:01:02",
+              "id": "node/9311286033"
+          },
+          "geometry": {
+              "type": "Point",
+              "coordinates": [
+                  127.029602,
+                  37.494276
+              ]
+          }
+      },
+      {
+          "type": "Feature",
+          "properties": {
+              "bus": "yes",
+              "highway": "bus_stop",
+              "name": "신분당선.강남역4번출구",
+              "name:en": "Gangnam Station (Shinbundang Line) Exit 4",
+              "name:ko": "신분당선.강남역4번출구",
+              "public_transport": "platform",
+              "ref": "23572",
+              "source": "공공데이터포털",
+              "source:date": "2021/09/16 07:31:03",
+              "id": "node/9320549483"
+          },
+          "geometry": {
+              "type": "Point",
+              "coordinates": [
+                  127.0295384,
+                  37.4944295
+              ]
+          }
+      },
+      {
+          "type": "Feature",
+          "properties": {
+              "bus": "yes",
+              "highway": "bus_stop",
+              "name": "서초청소년도서관",
+              "name:en": "Seocho Youth Library",
+              "name:ko": "서초청소년도서관",
+              "public_transport": "platform",
+              "ref": "22119",
+              "route_ref": "144;145;350",
+              "source": "공공데이터포털",
+              "source:date": "2021/09/16 07:31:03",
+              "id": "node/9320549484"
+          },
+          "geometry": {
+              "type": "Point",
+              "coordinates": [
+                  127.0285403,
+                  37.4926995
+              ]
+          }
+      },
+      {
+          "type": "Feature",
+          "properties": {
+              "alt_name": "Kentucky Fried Chicken",
+              "amenity": "fast_food",
+              "brand": "KFC",
+              "brand:wikidata": "Q524757",
+              "cuisine": "chicken",
+              "name": "KFC",
+              "takeaway": "yes",
+              "id": "node/9835273093"
+          },
+          "geometry": {
+              "type": "Point",
+              "coordinates": [
+                  127.0283574,
+                  37.4927
+              ]
+          }
+      },
+      {
+          "type": "Feature",
+          "properties": {
+              "addr:city": "서울특별시",
+              "addr:district": "강남구",
+              "addr:housenumber": "354",
+              "addr:postcode": "06242",
+              "addr:street": "강남대로",
+              "addr:subdistrict": "역삼1동",
+              "name": "더네이처컴퍼니",
+              "ref:serial_number": "25972899",
+              "shop": "grocery",
+              "id": "node/9889555089"
+          },
+          "geometry": {
+              "type": "Point",
+              "coordinates": [
+                  127.0297143,
+                  37.4946425
+              ]
+          }
+      },
+      {
+          "type": "Feature",
+          "properties": {
+              "addr:city": "서울특별시",
+              "addr:district": "강남구",
+              "addr:housenumber": "13",
+              "addr:postcode": "06242",
+              "addr:street": "역삼로3길",
+              "addr:subdistrict": "역삼1동",
+              "name": "아비세나",
+              "ref:serial_number": "24170102",
+              "shop": "grocery",
+              "id": "node/9889570627"
+          },
+          "geometry": {
+              "type": "Point",
+              "coordinates": [
+                  127.0310414,
+                  37.494338
+              ]
+          }
+      },
+      {
+          "type": "Feature",
+          "properties": {
+              "addr:city": "서울특별시",
+              "addr:district": "강남구",
+              "addr:floor": "1",
+              "addr:housenumber": "17-5",
+              "addr:postcode": "06242",
+              "addr:street": "역삼로3길",
+              "addr:subdistrict": "역삼1동",
+              "name": "화만포정육점",
+              "ref:serial_number": "17221161",
+              "shop": "butcher",
+              "id": "node/9889673571"
+          },
+          "geometry": {
+              "type": "Point",
+              "coordinates": [
+                  127.0309078,
+                  37.4945088
+              ]
+          }
+      },
+      {
+          "type": "Feature",
+          "properties": {
+              "addr:city": "서울특별시",
+              "addr:district": "강남구",
+              "addr:housenumber": "17-5",
+              "addr:postcode": "06242",
+              "addr:street": "역삼로3길",
+              "addr:subdistrict": "역삼1동",
+              "name": "고고정육센터",
+              "ref:serial_number": "16950950",
+              "shop": "butcher",
+              "id": "node/9889673597"
+          },
+          "geometry": {
+              "type": "Point",
+              "coordinates": [
+                  127.0308697,
+                  37.4944988
+              ]
+          }
+      },
+      {
+          "type": "Feature",
+          "properties": {
+              "amenity": "restaurant",
+              "name": "Manjok Ohyang Jokbal  Braised Trotters",
+              "id": "node/10636695806"
+          },
+          "geometry": {
+              "type": "Point",
+              "coordinates": [
+                  127.0301271,
+                  37.4949686
+              ]
+          }
+      },
+      {
+          "type": "Feature",
+          "properties": {
+              "amenity": "restaurant",
+              "name": "Bonjuk Bibmbap cafe Gangnam",
+              "id": "node/10637204705"
+          },
+          "geometry": {
+              "type": "Point",
+              "coordinates": [
+                  127.0281554,
+                  37.4948153
+              ]
+          }
+      },
+      {
+          "type": "Feature",
+          "properties": {
+              "amenity": "restaurant",
+              "name": "Han BangSamgyetang",
+              "id": "node/10638612605"
+          },
+          "geometry": {
+              "type": "Point",
+              "coordinates": [
+                  127.0292918,
+                  37.4955188
+              ]
+          }
+      },
+      {
+          "type": "Feature",
+          "properties": {
+              "addr:city": "서울 서초구",
+              "addr:housenumber": "49",
+              "addr:postcode": "06626",
+              "addr:street": "서초대로74길",
+              "leisure": "fitness_centre",
+              "name": "하이라이트피트니스",
+              "phone": "+822-6956-2455",
+              "sport": "fitness",
+              "id": "node/10829909278"
+          },
+          "geometry": {
+              "type": "Point",
+              "coordinates": [
+                  127.0281178,
+                  37.493406
+              ]
+          }
+      },
+      {
+          "type": "Feature",
+          "properties": {
+              "junction": "yes",
+              "name": "우성아파트앞사거리",
+              "name:ko": "우성아파트앞사거리",
+              "id": "node/11083773290"
+          },
+          "geometry": {
+              "type": "Point",
+              "coordinates": [
+                  127.0299675,
+                  37.4930233
+              ]
+          }
+      },
+      {
+          "type": "Feature",
+          "properties": {
+              "addr:street": "강남대로",
+              "amenity": "fast_food",
+              "name": "붕어빵",
+              "id": "node/11726453370"
+          },
+          "geometry": {
+              "type": "Point",
+              "coordinates": [
+                  127.0298994,
+                  37.4927085
+              ]
+          }
+      }
+  ]
+}

@@ -1,6 +1,7 @@
 import axios from 'axios';
 import * as L from 'leaflet';
 import osmtogeojson from 'osmtogeojson';
+import * as turf from '@turf/turf';
 
 
 let map: L.Map = L.map('map');
@@ -16,7 +17,7 @@ async function getCoordinates(address: string): Promise<{ latitude: number, long
 async function getNearbyData(rectBounds: L.LatLngBounds): Promise<JSON> {
   const query = `
   [out:json];
-  way[highway]
+  node[name]
     (${rectBounds.getSouth()}, ${rectBounds.getWest()}, ${rectBounds.getNorth()}, ${rectBounds.getEast()});
   out geom;
   `
@@ -63,10 +64,10 @@ async function main() {
     // 주소로부터 위도와 경도를 가져옴
     const address: string = "강남역";
     const { latitude, longitude } = await getCoordinates(address);
-    const rectBounds: L.LatLngBounds = getBoundsAroundLocation(new L.LatLng(latitude, longitude), 300);
+    const rectBounds: L.LatLngBounds = getBoundsAroundLocation(new L.LatLng(latitude, longitude), 200);
 
     // 위도와 경도에 따른 맵 조정
-    map.setView({lng: longitude, lat: latitude}, 17);
+    map.setView({lng: longitude, lat: latitude}, 18);
     map.setMaxBounds(rectBounds);
 
     // 주어진 좌표 주변의 건물 및 도로 정보를 가져옴
@@ -74,23 +75,54 @@ async function main() {
 
     // 결과 출력
     
-    const boundaryLayer = L.rectangle(rectBounds, {
-      color: 'white',
-      weight: 3,
-    }).addTo(map)
-    console.log(rectBounds);
-    let geoJsonData = osmtogeojson(nearbyData, {
-      flatProperties: true,
-      polygonFeatures: ['way']
+    // 가장 바깥의 정사각형
+    // const boundaryLayer = L.rectangle(rectBounds, {
+    //   color: 'white',
+    //   weight: 3,
+    // }).addTo(map)
+    // console.log(rectBounds);
+
+    const geoJsonData = osmtogeojson(nearbyData, {
+      verbose: false,
+      flatProperties: true
     });
     
     console.log(geoJsonData);
-    const roadsLayer = L.geoJSON(geoJsonData, {
-      style: (feature) => ({
-        color: `#${Math.round(Math.random() * 0xffffff).toString(16)}`,
-        weight: 2,
-      })
-    }).addTo(map);
+    // voronoi polygons 만들기
+    const points: turf.FeatureCollection<turf.Point> = turf.featureCollection(
+      geoJsonData.features.map(feature => ({
+        type: 'Feature',
+        properties: feature.properties,
+        geometry: {
+          type: 'Point',
+          coordinates: (feature.geometry as turf.Point).coordinates
+        }
+    })));
+    console.log(points);
+
+    const bbox: turf.BBox = [rectBounds.getWest(), rectBounds.getSouth(), rectBounds.getEast(), rectBounds.getNorth()];
+    const voronoiPolygons = turf.voronoi(points, {
+      bbox: bbox
+    });
+    console.log(voronoiPolygons);
+    
+    // const points = turf.randomPoint(100, {
+    //   bbox: bbox
+    // });
+    // console.log(points);
+    // const voronoiPolygons = turf.voronoi(points, {
+    //   bbox: bbox
+    // });
+    L.geoJSON(points).addTo(map);
+    L.geoJSON(voronoiPolygons).addTo(map);
+    
+
+    // const roadsLayer = L.geoJSON(geoJsonData, {
+    //   style: (feature) => ({
+    //     color: `#${Math.round(Math.random() * 0xffffff).toString(16)}`,
+    //     weight: 2,
+    //   })
+    // }).addTo(map);
   } catch (error) {
     console.error("Error:", error);
   }
