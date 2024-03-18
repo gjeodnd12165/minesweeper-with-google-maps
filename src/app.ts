@@ -104,6 +104,12 @@ async function main() {
     const voronoiPolygons = turf.voronoi(points, {
       bbox: bbox
     });
+    for(let i = 0; i < voronoiPolygons.features.length; i++) {
+      const pointName: string = points.features[i].properties?.name;
+      Object.defineProperty(voronoiPolygons.features[i].properties, 'name', {
+        value: pointName
+      });
+    }
     console.log(voronoiPolygons);
     
     // const points = turf.randomPoint(100, {
