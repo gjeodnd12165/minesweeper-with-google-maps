@@ -1,5 +1,9 @@
 # Mine Sweeper with Map
-This project is to make minesweeper with map.
-Basically, roads in the map will seperate a area of the minesweeper.
+This project is to make minesweeper with map.  
+~~Basically, roads in the map will seperate a area of the minesweeper.~~  
+Now I will use voronoi diagram to define areas.
 ## Todo
-- [ ] change api google maps to open street map
+- [ ] Find some good voronoi diagram module
+- [ ] Create a json conversion function appropriate for the module's point interface.
+- [ ] [see](https://www.npmjs.com/package/@vx/voronoi), it's a pretty good module for this project.
+    - [ ] try to make some react version of this project. - make some branch
