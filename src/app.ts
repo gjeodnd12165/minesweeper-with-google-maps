@@ -1,7 +1,6 @@
 import axios from 'axios';
 import * as L from 'leaflet';
 import osmtogeojson from 'osmtogeojson';
-import * as turf from '@turf/turf';
 
 
 let map: L.Map = L.map('map');
@@ -75,12 +74,11 @@ async function main() {
 
     // 결과 출력
     
-    // 가장 바깥의 정사각형
-    // const boundaryLayer = L.rectangle(rectBounds, {
-    //   color: 'white',
-    //   weight: 3,
-    // }).addTo(map)
-    // console.log(rectBounds);
+    const boundaryLayer = L.rectangle(rectBounds, {
+      color: 'white',
+      weight: 3,
+    }).addTo(map)
+    console.log(rectBounds);
 
     const geoJsonData = osmtogeojson(nearbyData, {
       verbose: false,
@@ -88,33 +86,8 @@ async function main() {
     });
     
     console.log(geoJsonData);
-    // voronoi polygons 만들기
-    const points: turf.FeatureCollection<turf.Point> = turf.featureCollection(
-      geoJsonData.features.map(feature => ({
-        type: 'Feature',
-        properties: feature.properties,
-        geometry: {
-          type: 'Point',
-          coordinates: (feature.geometry as turf.Point).coordinates
-        }
-    })));
-    console.log(points);
 
-    const bbox: turf.BBox = [rectBounds.getWest(), rectBounds.getSouth(), rectBounds.getEast(), rectBounds.getNorth()];
-    const voronoiPolygons: turf.FeatureCollection<turf.Polygon> = turf.voronoi(points, {
-      bbox: bbox
-    });
-
-    turf.featureEach(voronoiPolygons, (feature: turf.Feature, index: number) => {
-      feature.properties = {
-        name: points.features[index].properties?.name,
-        ...feature.properties
-      }
-    });
-    console.log(voronoiPolygons);
-
-    L.geoJSON(points).addTo(map);
-    L.geoJSON(voronoiPolygons).addTo(map);
+    L.geoJSON(geoJsonData).addTo(map);
     
 
     // const roadsLayer = L.geoJSON(geoJsonData, {
