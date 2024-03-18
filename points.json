@@ -6,6 +6,26 @@
             "properties": {
                 "bus": "yes",
                 "highway": "bus_stop",
+                "name": "강남역1번출구.역삼세무서",
+                "public_transport": "platform",
+                "ref": "23287",
+                "source": "공공데이터포털",
+                "source:date": "2021/09/16 07:31:03",
+                "id": "node/357837532"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    127.0290811,
+                    37.4982595
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "bus": "yes",
+                "highway": "bus_stop",
                 "name": "지하철2호선.강남역(중)",
                 "name:en": "Gangnam Station (Subway Line 2)",
                 "name:ja": "地下鉄2号線.江南駅",
@@ -76,28 +96,6 @@
         {
             "type": "Feature",
             "properties": {
-                "bus": "yes",
-                "highway": "bus_stop",
-                "name": "지하철2호선강남역(중)",
-                "name:en": "Gangnam Station (Subway Line 2)",
-                "name:ko": "지하철2호선강남역(중)",
-                "public_transport": "platform",
-                "ref": "22011",
-                "source": "공공데이터포털",
-                "source:date": "2021/09/16 07:31:03",
-                "id": "node/357966956"
-            },
-            "geometry": {
-                "type": "Point",
-                "coordinates": [
-                    127.0256967,
-                    37.5017897
-                ]
-            }
-        },
-        {
-            "type": "Feature",
-            "properties": {
                 "amenity": "cinema",
                 "name": "메가박스 씨티극장",
                 "name:en": "City Cinema",
@@ -112,26 +110,6 @@
                 "coordinates": [
                     127.0269196,
                     37.5003551
-                ]
-            }
-        },
-        {
-            "type": "Feature",
-            "properties": {
-                "name": "부동산마트",
-                "name:en": "Budongsan Mart",
-                "name:ko": "부동산마트",
-                "name:ko-Latn": "Budongsanmateu",
-                "ncat": "마트",
-                "shop": "supermarket",
-                "source": "http://kr.open.gugi.yahoo.com",
-                "id": "node/368664492"
-            },
-            "geometry": {
-                "type": "Point",
-                "coordinates": [
-                    127.024497,
-                    37.500937
                 ]
             }
         },
@@ -440,6 +418,23 @@
             "type": "Feature",
             "properties": {
                 "amenity": "pub",
+                "name": "옥토버훼스트 강남점",
+                "name:en": "Oktoberfest",
+                "name:ko": "옥토버훼스트 강남점",
+                "id": "node/3794028596"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    127.0256261,
+                    37.4983956
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "amenity": "pub",
                 "name": "써스티몽크 강남역점",
                 "name:en": "Thirsty Monk",
                 "name:ko": "써스티몽크 강남역점",
@@ -572,6 +567,23 @@
                 "coordinates": [
                     127.0274281,
                     37.5004214
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "name": "강남스타일 말춤 스테이지",
+                "name:en": "Gangnam Style Horse Dance Stage",
+                "name:ja": "江南スタイル 乗馬ダンスステージ",
+                "tourism": "attraction",
+                "id": "node/5468966624"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    127.0278214,
+                    37.4983502
                 ]
             }
         },
@@ -752,6 +764,21 @@
         {
             "type": "Feature",
             "properties": {
+                "amenity": "nightclub",
+                "name": "클럽매스",
+                "id": "node/6300474688"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    127.0269416,
+                    37.4983393
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
                 "addr:housenumber": "18",
                 "addr:street": "강남대로94길",
                 "amenity": "restaurant",
@@ -884,6 +911,36 @@
             "type": "Feature",
             "properties": {
                 "amenity": "restaurant",
+                "name": "Porridge",
+                "id": "node/7206082885"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    127.0292081,
+                    37.4998012
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "amenity": "restaurant",
+                "name": "porridge",
+                "id": "node/7206082886"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    127.0291838,
+                    37.4997835
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "amenity": "restaurant",
                 "cuisine": "chicken;korean",
                 "name": "yoogane",
                 "name:en": "Yoogane",
@@ -976,21 +1033,6 @@
         {
             "type": "Feature",
             "properties": {
-                "amenity": "restaurant",
-                "name": "Hanam Pig Bbq",
-                "id": "node/7208024685"
-            },
-            "geometry": {
-                "type": "Point",
-                "coordinates": [
-                    127.0245199,
-                    37.5006522
-                ]
-            }
-        },
-        {
-            "type": "Feature",
-            "properties": {
                 "name": "Folder Store",
                 "shop": "department_store",
                 "id": "node/7208699085"
@@ -1038,21 +1080,6 @@
             "type": "Feature",
             "properties": {
                 "amenity": "restaurant",
-                "name": "Hanam pig",
-                "id": "node/7211116385"
-            },
-            "geometry": {
-                "type": "Point",
-                "coordinates": [
-                    127.0245528,
-                    37.5006701
-                ]
-            }
-        },
-        {
-            "type": "Feature",
-            "properties": {
-                "amenity": "restaurant",
                 "name": "Ugly Stove pasta",
                 "id": "node/7211117987"
             },
@@ -1077,29 +1104,6 @@
                 "coordinates": [
                     127.0279865,
                     37.5004003
-                ]
-            }
-        },
-        {
-            "type": "Feature",
-            "properties": {
-                "brand": "세븐일레븐",
-                "brand:en": "7-Eleven",
-                "brand:ko": "세븐일레븐",
-                "brand:wikidata": "Q259340",
-                "brand:wikipedia": "en:7-Eleven",
-                "check_date": "2024-02-22",
-                "name": "세븐일레븐",
-                "name:en": "7-Eleven",
-                "name:ko": "세븐일레븐",
-                "shop": "convenience",
-                "id": "node/7489399618"
-            },
-            "geometry": {
-                "type": "Point",
-                "coordinates": [
-                    127.0267448,
-                    37.5018418
                 ]
             }
         },
@@ -1164,6 +1168,23 @@
                 "coordinates": [
                     127.02491,
                     37.5013924
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "amenity": "restaurant",
+                "cuisine": "turkish",
+                "name": "Pasha",
+                "name:en": "Turkish cuisine",
+                "id": "node/8212531717"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    127.0255987,
+                    37.4984138
                 ]
             }
         },
@@ -1258,28 +1279,6 @@
         {
             "type": "Feature",
             "properties": {
-                "bus": "yes",
-                "highway": "bus_stop",
-                "name": "신논현역.우신빌딩",
-                "name:en": "Sinnonhyeon Station, Wooshin Building",
-                "name:ko": "신논현역.우신빌딩",
-                "public_transport": "platform",
-                "ref": "31057",
-                "source": "공공데이터포털",
-                "source:date": "2021/09/16 04:01:02",
-                "id": "node/9322016186"
-            },
-            "geometry": {
-                "type": "Point",
-                "coordinates": [
-                    127.02547,
-                    37.501813
-                ]
-            }
-        },
-        {
-            "type": "Feature",
-            "properties": {
                 "name": "Artbox",
                 "shop": "convenience",
                 "id": "node/9693953917"
@@ -1360,21 +1359,6 @@
                 "coordinates": [
                     127.0255682,
                     37.501326
-                ]
-            }
-        },
-        {
-            "type": "Feature",
-            "properties": {
-                "leisure": "amusement_arcade",
-                "name": "Zzang Games",
-                "id": "node/9776603770"
-            },
-            "geometry": {
-                "type": "Point",
-                "coordinates": [
-                    127.0252749,
-                    37.5019791
                 ]
             }
         },

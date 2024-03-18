@@ -101,24 +101,18 @@ async function main() {
     console.log(points);
 
     const bbox: turf.BBox = [rectBounds.getWest(), rectBounds.getSouth(), rectBounds.getEast(), rectBounds.getNorth()];
-    const voronoiPolygons = turf.voronoi(points, {
+    const voronoiPolygons: turf.FeatureCollection<turf.Polygon> = turf.voronoi(points, {
       bbox: bbox
     });
-    for(let i = 0; i < voronoiPolygons.features.length; i++) {
-      const pointName: string = points.features[i].properties?.name;
-      Object.defineProperty(voronoiPolygons.features[i].properties, 'name', {
-        value: pointName
-      });
-    }
+
+    turf.featureEach(voronoiPolygons, (feature: turf.Feature, index: number) => {
+      feature.properties = {
+        name: points.features[index].properties?.name,
+        ...feature.properties
+      }
+    });
     console.log(voronoiPolygons);
-    
-    // const points = turf.randomPoint(100, {
-    //   bbox: bbox
-    // });
-    // console.log(points);
-    // const voronoiPolygons = turf.voronoi(points, {
-    //   bbox: bbox
-    // });
+
     L.geoJSON(points).addTo(map);
     L.geoJSON(voronoiPolygons).addTo(map);
     
