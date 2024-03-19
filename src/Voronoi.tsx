@@ -18,10 +18,10 @@ export const Voronoi = ({ width, height, data }: Props) => {
   const allCircles = data.map((d, i) => {
     return (
       <>
-        <circle key={i} cx={xScale(d.x)} cy={yScale(d.y)} r={4} />
+        <circle key={`point/${i}`} cx={xScale(d.x)} cy={yScale(d.y)} r={4} />
         {hoveredItem === i && (
           <circle
-            key={i}
+            key={`redCircle/${i}`}
             cx={xScale(d.x)}
             cy={yScale(d.y)}
             r={10}
@@ -42,7 +42,7 @@ export const Voronoi = ({ width, height, data }: Props) => {
   }, []);
   const delaunayPath = delaunay.render();
   const allDelaunayShapes = (
-    <path d={delaunayPath} stroke="grey" fill="transparent" opacity={0.2} />
+    <path id={`shape`} d={delaunayPath} stroke="grey" fill="transparent" opacity={0.2} />
   )
 
   const voronoi = useMemo(() => {
@@ -50,13 +50,14 @@ export const Voronoi = ({ width, height, data }: Props) => {
   }, [data]);
   const voronoiCells = data.map((d, i) => {
     const path = voronoi.renderCell(i);
+    const adjacentCells: number[] = [...voronoi.neighbors(hoveredItem ?? -1)];
     return (
       <path
-      key={i}
+      key={`cell/${i}`}
       d={path}
       stroke="grey"
-      fill="transparent"
-      opacity={0.1}
+      fill={adjacentCells.includes(i) ? "grey" : "transparent"}
+      opacity={0.5}
       onMouseOver={() => {
         setHoveredItem(i);
       }}
