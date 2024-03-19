@@ -3,6 +3,7 @@
     "features": [
         {
             "type": "Feature",
+            "id": "node/357837532",
             "properties": {
                 "bus": "yes",
                 "highway": "bus_stop",
@@ -23,6 +24,7 @@
         },
         {
             "type": "Feature",
+            "id": "node/357840217",
             "properties": {
                 "bus": "yes",
                 "highway": "bus_stop",
@@ -46,6 +48,7 @@
         },
         {
             "type": "Feature",
+            "id": "node/357884649",
             "properties": {
                 "bus": "yes",
                 "highway": "bus_stop",
@@ -71,6 +74,7 @@
         },
         {
             "type": "Feature",
+            "id": "node/357885448",
             "properties": {
                 "bus": "yes",
                 "highway": "bus_stop",
@@ -95,6 +99,7 @@
         },
         {
             "type": "Feature",
+            "id": "node/368635189",
             "properties": {
                 "amenity": "cinema",
                 "name": "메가박스 씨티극장",
@@ -115,6 +120,7 @@
         },
         {
             "type": "Feature",
+            "id": "node/368737960",
             "properties": {
                 "amenity": "dentist",
                 "healthcare": "dentist",
@@ -135,6 +141,7 @@
         },
         {
             "type": "Feature",
+            "id": "node/368738707",
             "properties": {
                 "amenity": "dentist",
                 "healthcare": "dentist",
@@ -155,6 +162,7 @@
         },
         {
             "type": "Feature",
+            "id": "node/368740546",
             "properties": {
                 "amenity": "dentist",
                 "healthcare": "dentist",
@@ -174,6 +182,7 @@
         },
         {
             "type": "Feature",
+            "id": "node/368872263",
             "properties": {
                 "amenity": "research_institute",
                 "name": "벤처경영연구소",
@@ -195,6 +204,7 @@
         },
         {
             "type": "Feature",
+            "id": "node/368956211",
             "properties": {
                 "amenity": "restaurant",
                 "name": "해금강횟집",
@@ -215,6 +225,7 @@
         },
         {
             "type": "Feature",
+            "id": "node/1925407798",
             "properties": {
                 "amenity": "cinema",
                 "brand": "씨제이 씨지브이)㈜",
@@ -239,6 +250,7 @@
         },
         {
             "type": "Feature",
+            "id": "node/1925407862",
             "properties": {
                 "name": "강남역 10번 출구",
                 "name:en": "Gangnam Station Exit 10",
@@ -257,6 +269,7 @@
         },
         {
             "type": "Feature",
+            "id": "node/1925407863",
             "properties": {
                 "name": "강남역 11번 출구",
                 "name:en": "Gangnam Station Exit 11",
@@ -275,6 +288,7 @@
         },
         {
             "type": "Feature",
+            "id": "node/1925407872",
             "properties": {
                 "amenity": "bank",
                 "atm": "yes",
@@ -298,6 +312,7 @@
         },
         {
             "type": "Feature",
+            "id": "node/2102394688",
             "properties": {
                 "amenity": "bank",
                 "name": "한국스탠다드차타드은행",
@@ -313,6 +328,7 @@
         },
         {
             "type": "Feature",
+            "id": "node/2103891648",
             "properties": {
                 "addr:city": "서울특별시 (Seoul)",
                 "addr:housenumber": "419",
@@ -339,6 +355,7 @@
         },
         {
             "type": "Feature",
+            "id": "node/3058316434",
             "properties": {
                 "amenity": "college",
                 "name": "서울한국어아카데미",
@@ -357,6 +374,7 @@
         },
         {
             "type": "Feature",
+            "id": "node/3103183129",
             "properties": {
                 "name": "강남역 12번 출구",
                 "name:en": "Gangnam Station gate 12",
@@ -376,6 +394,7 @@
         },
         {
             "type": "Feature",
+            "id": "node/3112723447",
             "properties": {
                 "amenity": "cinema",
                 "name": "청춘극장",
@@ -394,6 +413,7 @@
         },
         {
             "type": "Feature",
+            "id": "node/3794028593",
             "properties": {
                 "addr:city": "서울특별시 (Seoul)",
                 "addr:housenumber": "7",
@@ -416,6 +436,7 @@
         },
         {
             "type": "Feature",
+            "id": "node/3794028596",
             "properties": {
                 "amenity": "pub",
                 "name": "옥토버훼스트 강남점",
@@ -433,6 +454,7 @@
         },
         {
             "type": "Feature",
+            "id": "node/3794028597",
             "properties": {
                 "amenity": "pub",
                 "name": "써스티몽크 강남역점",
@@ -450,6 +472,7 @@
         },
         {
             "type": "Feature",
+            "id": "node/4250163825",
             "properties": {
                 "addr:city": "서울특별시 (Seoul)",
                 "addr:housenumber": "35",
@@ -472,6 +495,7 @@
         },
         {
             "type": "Feature",
+            "id": "node/4250475281",
             "properties": {
                 "amenity": "bar",
                 "name": "The Booth 2",
@@ -487,6 +511,7 @@
         },
         {
             "type": "Feature",
+            "id": "node/4855965722",
             "properties": {
                 "alt_name:ko": "파리바게트",
                 "brand": "파리바게뜨",
@@ -509,6 +534,7 @@
         },
         {
             "type": "Feature",
+            "id": "node/4855980521",
             "properties": {
                 "amenity": "restaurant",
                 "cuisine": "chicken;korean",
@@ -527,6 +553,7 @@
         },
         {
             "type": "Feature",
+            "id": "node/4905675813",
             "properties": {
                 "name": "위드미",
                 "shop": "convenience",
@@ -542,6 +569,7 @@
         },
         {
             "type": "Feature",
+            "id": "node/5130198948",
             "properties": {
                 "amenity": "cinema",
                 "name": "강남",
@@ -557,6 +585,7 @@
         },
         {
             "type": "Feature",
+            "id": "node/5130198949",
             "properties": {
                 "amenity": "cafe",
                 "name": "에나타 타로카페",
@@ -572,6 +601,7 @@
         },
         {
             "type": "Feature",
+            "id": "node/5468966624",
             "properties": {
                 "name": "강남스타일 말춤 스테이지",
                 "name:en": "Gangnam Style Horse Dance Stage",
@@ -589,6 +619,7 @@
         },
         {
             "type": "Feature",
+            "id": "node/5502393722",
             "properties": {
                 "amenity": "restaurant",
                 "brand": "Din Tai Fung",
@@ -614,6 +645,7 @@
         },
         {
             "type": "Feature",
+            "id": "node/5529600286",
             "properties": {
                 "amenity": "restaurant",
                 "name": "명동칼국수",
@@ -629,6 +661,7 @@
         },
         {
             "type": "Feature",
+            "id": "node/5578077423",
             "properties": {
                 "addr:housenumber": "428",
                 "addr:postcode": "06129",
@@ -652,6 +685,7 @@
         },
         {
             "type": "Feature",
+            "id": "node/5594463721",
             "properties": {
                 "amenity": "fast_food",
                 "branch": "강남2호점",
@@ -693,6 +727,7 @@
         },
         {
             "type": "Feature",
+            "id": "node/5629699125",
             "properties": {
                 "amenity": "restaurant",
                 "name": "고에몬 (달인,",
@@ -709,6 +744,7 @@
         },
         {
             "type": "Feature",
+            "id": "node/5894297786",
             "properties": {
                 "addr:housenumber": "438",
                 "addr:postcode": "06123",
@@ -731,6 +767,7 @@
         },
         {
             "type": "Feature",
+            "id": "node/6300473287",
             "properties": {
                 "addr:housenumber": "29",
                 "name": "이마트24",
@@ -747,6 +784,7 @@
         },
         {
             "type": "Feature",
+            "id": "node/6300474687",
             "properties": {
                 "addr:housenumber": "37",
                 "amenity": "nightclub",
@@ -763,6 +801,7 @@
         },
         {
             "type": "Feature",
+            "id": "node/6300474688",
             "properties": {
                 "amenity": "nightclub",
                 "name": "클럽매스",
@@ -778,6 +817,7 @@
         },
         {
             "type": "Feature",
+            "id": "node/6956479385",
             "properties": {
                 "addr:housenumber": "18",
                 "addr:street": "강남대로94길",
@@ -796,6 +836,7 @@
         },
         {
             "type": "Feature",
+            "id": "node/7021614785",
             "properties": {
                 "name": "17 Gangnam daero 61-gil, Seocho 4 (sa) - Dong",
                 "tourism": "apartment",
@@ -811,6 +852,7 @@
         },
         {
             "type": "Feature",
+            "id": "node/7160228385",
             "properties": {
                 "addr:street": "620-15 Yeoksam-dong, Gangnam-gu, Seoul, South Korea / 서울특별시 강남구 역삼동 620-15",
                 "amenity": "cafe",
@@ -830,6 +872,7 @@
         },
         {
             "type": "Feature",
+            "id": "node/7160263485",
             "properties": {
                 "addr:street": "25 Gangnam-daero 98-gil, Yeoksam-dong, Gangnam-gu, Seoul, South Korea / 서울특별시 강남구 강남대로98길 25 (역삼동)",
                 "amenity": "cafe",
@@ -849,6 +892,7 @@
         },
         {
             "type": "Feature",
+            "id": "node/7192999087",
             "properties": {
                 "name": "M Chereville Airb&b",
                 "tourism": "apartment",
@@ -864,6 +908,7 @@
         },
         {
             "type": "Feature",
+            "id": "node/7203789385",
             "properties": {
                 "amenity": "restaurant",
                 "name": "Pomato 24hrs",
@@ -879,6 +924,7 @@
         },
         {
             "type": "Feature",
+            "id": "node/7203800485",
             "properties": {
                 "amenity": "restaurant",
                 "name": "pomato 24hr’s",
@@ -894,6 +940,7 @@
         },
         {
             "type": "Feature",
+            "id": "node/7206067685",
             "properties": {
                 "amenity": "restaurant",
                 "name": "seorae BBQ pork",
@@ -909,6 +956,7 @@
         },
         {
             "type": "Feature",
+            "id": "node/7206082885",
             "properties": {
                 "amenity": "restaurant",
                 "name": "Porridge",
@@ -924,6 +972,7 @@
         },
         {
             "type": "Feature",
+            "id": "node/7206082886",
             "properties": {
                 "amenity": "restaurant",
                 "name": "porridge",
@@ -939,6 +988,7 @@
         },
         {
             "type": "Feature",
+            "id": "node/7206084285",
             "properties": {
                 "amenity": "restaurant",
                 "cuisine": "chicken;korean",
@@ -957,6 +1007,7 @@
         },
         {
             "type": "Feature",
+            "id": "node/7206101785",
             "properties": {
                 "amenity": "restaurant",
                 "name": "Primo bacio baci, Italian",
@@ -972,6 +1023,7 @@
         },
         {
             "type": "Feature",
+            "id": "node/7206116085",
             "properties": {
                 "amenity": "restaurant",
                 "name": "primo bacio baci Italian",
@@ -987,6 +1039,7 @@
         },
         {
             "type": "Feature",
+            "id": "node/7206144985",
             "properties": {
                 "amenity": "restaurant",
                 "name": "AUCE beef bbq",
@@ -1002,6 +1055,7 @@
         },
         {
             "type": "Feature",
+            "id": "node/7207625385",
             "properties": {
                 "amenity": "restaurant",
                 "name": "Ugly Stove, pasta",
@@ -1017,6 +1071,7 @@
         },
         {
             "type": "Feature",
+            "id": "node/7207905285",
             "properties": {
                 "amenity": "restaurant",
                 "name": "Mango Plate AUCE bbq",
@@ -1032,6 +1087,7 @@
         },
         {
             "type": "Feature",
+            "id": "node/7208699085",
             "properties": {
                 "name": "Folder Store",
                 "shop": "department_store",
@@ -1047,6 +1103,7 @@
         },
         {
             "type": "Feature",
+            "id": "node/7208741387",
             "properties": {
                 "name": "The Body Shop",
                 "shop": "department_store",
@@ -1062,6 +1119,7 @@
         },
         {
             "type": "Feature",
+            "id": "node/7211100585",
             "properties": {
                 "name": "폴더",
                 "name:en": "Folder",
@@ -1078,6 +1136,7 @@
         },
         {
             "type": "Feature",
+            "id": "node/7211117987",
             "properties": {
                 "amenity": "restaurant",
                 "name": "Ugly Stove pasta",
@@ -1093,6 +1152,7 @@
         },
         {
             "type": "Feature",
+            "id": "node/7211126385",
             "properties": {
                 "amenity": "restaurant",
                 "cuisine": "vietnamese",
@@ -1109,6 +1169,7 @@
         },
         {
             "type": "Feature",
+            "id": "node/7597460220",
             "properties": {
                 "brand": "세븐일레븐",
                 "brand:en": "7-Eleven",
@@ -1130,6 +1191,7 @@
         },
         {
             "type": "Feature",
+            "id": "node/7597496905",
             "properties": {
                 "brand": "세븐일레븐",
                 "brand:en": "7-Eleven",
@@ -1151,6 +1213,7 @@
         },
         {
             "type": "Feature",
+            "id": "node/7597500312",
             "properties": {
                 "brand": "세븐일레븐",
                 "brand:en": "7-Eleven",
@@ -1173,6 +1236,7 @@
         },
         {
             "type": "Feature",
+            "id": "node/8212531717",
             "properties": {
                 "amenity": "restaurant",
                 "cuisine": "turkish",
@@ -1190,6 +1254,7 @@
         },
         {
             "type": "Feature",
+            "id": "node/9311286022",
             "properties": {
                 "bus": "yes",
                 "highway": "bus_stop",
@@ -1212,6 +1277,7 @@
         },
         {
             "type": "Feature",
+            "id": "node/9322016181",
             "properties": {
                 "bus": "yes",
                 "highway": "bus_stop",
@@ -1234,6 +1300,7 @@
         },
         {
             "type": "Feature",
+            "id": "node/9322016182",
             "properties": {
                 "bus": "yes",
                 "highway": "bus_stop",
@@ -1256,6 +1323,7 @@
         },
         {
             "type": "Feature",
+            "id": "node/9322016184",
             "properties": {
                 "bus": "yes",
                 "highway": "bus_stop",
@@ -1278,6 +1346,7 @@
         },
         {
             "type": "Feature",
+            "id": "node/9693953917",
             "properties": {
                 "name": "Artbox",
                 "shop": "convenience",
@@ -1293,6 +1362,7 @@
         },
         {
             "type": "Feature",
+            "id": "node/9776373036",
             "properties": {
                 "amenity": "cafe",
                 "cuisine": "dessert",
@@ -1312,6 +1382,7 @@
         },
         {
             "type": "Feature",
+            "id": "node/9776374323",
             "properties": {
                 "leisure": "amusement_arcade",
                 "level": "-1",
@@ -1330,6 +1401,7 @@
         },
         {
             "type": "Feature",
+            "id": "node/9776442259",
             "properties": {
                 "fixme": "brand",
                 "level": "1",
@@ -1347,6 +1419,7 @@
         },
         {
             "type": "Feature",
+            "id": "node/9776562203",
             "properties": {
                 "name": "라인프렌즈 플래그십 스토어",
                 "name:en": "Line Friends Flagship Store",
@@ -1364,6 +1437,7 @@
         },
         {
             "type": "Feature",
+            "id": "node/9776618354",
             "properties": {
                 "leisure": "escape_game",
                 "level": "-1",
@@ -1380,6 +1454,7 @@
         },
         {
             "type": "Feature",
+            "id": "node/9776621748",
             "properties": {
                 "alt_name": "Dunkin' Donuts",
                 "amenity": "fast_food",
@@ -1401,6 +1476,7 @@
         },
         {
             "type": "Feature",
+            "id": "node/9776624307",
             "properties": {
                 "amenity": "cafe",
                 "fixme": "brand",
@@ -1418,6 +1494,7 @@
         },
         {
             "type": "Feature",
+            "id": "node/9776629491",
             "properties": {
                 "amenity": "cafe",
                 "level": "2",
@@ -1435,6 +1512,7 @@
         },
         {
             "type": "Feature",
+            "id": "node/9776634926",
             "properties": {
                 "brand": "GS25",
                 "brand:wikidata": "Q624041",
@@ -1454,6 +1532,7 @@
         },
         {
             "type": "Feature",
+            "id": "node/9789186909",
             "properties": {
                 "level": "1",
                 "name": "Wonderplace",
@@ -1470,6 +1549,7 @@
         },
         {
             "type": "Feature",
+            "id": "node/9789213377",
             "properties": {
                 "amenity": "restaurant",
                 "cuisine": "japanese",
@@ -1492,6 +1572,7 @@
         },
         {
             "type": "Feature",
+            "id": "node/9789220861",
             "properties": {
                 "amenity": "fast_food",
                 "check_date": "2022-10-04",
@@ -1511,6 +1592,7 @@
         },
         {
             "type": "Feature",
+            "id": "node/10556449195",
             "properties": {
                 "addr:city": "서울특별시",
                 "addr:housenumber": "41",
@@ -1531,6 +1613,7 @@
         },
         {
             "type": "Feature",
+            "id": "node/10632766805",
             "properties": {
                 "amenity": "restaurant",
                 "name": "Jangin Dak Galbi",
@@ -1546,6 +1629,7 @@
         },
         {
             "type": "Feature",
+            "id": "node/10632787705",
             "properties": {
                 "amenity": "restaurant",
                 "name": "Witch's Kitchen.  Italian",
@@ -1561,6 +1645,7 @@
         },
         {
             "type": "Feature",
+            "id": "node/10636156906",
             "properties": {
                 "amenity": "restaurant",
                 "name": "Yomenya Goemon. Jap Pasta",
@@ -1576,6 +1661,7 @@
         },
         {
             "type": "Feature",
+            "id": "node/10636908906",
             "properties": {
                 "amenity": "restaurant",
                 "name": "Deulkoch . Porridge.",
@@ -1591,6 +1677,7 @@
         },
         {
             "type": "Feature",
+            "id": "node/10678285517",
             "properties": {
                 "addr:city": "서울 강남구",
                 "addr:housenumber": "11",
@@ -1613,6 +1700,7 @@
         },
         {
             "type": "Feature",
+            "id": "node/10938705505",
             "properties": {
                 "addr:housenumber": "10, 세경빌딩 2층",
                 "addr:street": "테헤란로1길",
@@ -1634,6 +1722,7 @@
         },
         {
             "type": "Feature",
+            "id": "node/10940070105",
             "properties": {
                 "addr:housenumber": "402, 시계탑빌딩 9층",
                 "addr:postcode": "06134",
@@ -1655,6 +1744,7 @@
         },
         {
             "type": "Feature",
+            "id": "node/10967504087",
             "properties": {
                 "addr:city": "서울특별시 강남구",
                 "addr:housenumber": "13",
@@ -1675,6 +1765,7 @@
         },
         {
             "type": "Feature",
+            "id": "node/10982215606",
             "properties": {
                 "addr:housenumber": "441, 4층",
                 "amenity": "clinic",
@@ -1694,6 +1785,7 @@
         },
         {
             "type": "Feature",
+            "id": "node/10991677346",
             "properties": {
                 "addr:city": "강남구",
                 "addr:housenumber": "13",
@@ -1715,6 +1807,7 @@
         },
         {
             "type": "Feature",
+            "id": "node/11391407288",
             "properties": {
                 "amenity": "karaoke_box",
                 "branch": "강남",
@@ -1733,6 +1826,7 @@
         },
         {
             "type": "Feature",
+            "id": "node/11443696241",
             "properties": {
                 "addr:borough": "서초구",
                 "addr:city": "서울특별시",
@@ -1759,6 +1853,7 @@
         },
         {
             "type": "Feature",
+            "id": "node/11518426203",
             "properties": {
                 "addr:city": "서울 강남구",
                 "addr:housenumber": "28",
@@ -1780,6 +1875,7 @@
         },
         {
             "type": "Feature",
+            "id": "node/11523352525",
             "properties": {
                 "addr:city": "서초구",
                 "addr:housenumber": "437",
@@ -1810,6 +1906,7 @@
         },
         {
             "type": "Feature",
+            "id": "node/11560793750",
             "properties": {
                 "bus": "yes",
                 "highway": "bus_stop",
