@@ -66,9 +66,8 @@ async function getNodes() {
       flatProperties: true
     });
 
-    // Do things with {geoJsonData}
+    return geoJsonData;
     
-
   } catch (error) {
     console.error("Error:", error);
   }
