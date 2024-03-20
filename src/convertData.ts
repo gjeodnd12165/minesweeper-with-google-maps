@@ -11,8 +11,8 @@ export const getConvertedData = (rawData: GeoJSON.FeatureCollection, width: numb
   
   const refinedData = rawData.features.map((feature) => {
     const name = feature.properties?.name;
-    const rawCoordinates: [number, number] = feature.geometry.type === "Point" ? feature.geometry.coordinates as [number, number]: [0, 0];
-    const [x, y] = projection(rawCoordinates) ?? [0, 0];
+    const coordinates: [number, number] = feature.geometry.type === "Point" ? feature.geometry.coordinates as [number, number]: [0, 0];
+    const [x, y] = projection(coordinates) ?? [0, 0];
     return {
       name: name,
       x: x,
