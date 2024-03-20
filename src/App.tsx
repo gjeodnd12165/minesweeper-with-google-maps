@@ -2,17 +2,29 @@ import React from 'react';
 import './App.css';
 import Map from './Map';
 import { Voronoi } from './Voronoi';
-import { data } from './data';
+import { getConvertedData } from './convertData';
+import { rawData } from './data';
 
 
 function App() {
+  const width = 900, height = 900;
+  const data = getConvertedData(rawData, width, height);
+  console.log(rawData);
+  console.log(data);
+
   return (
-    <Voronoi
-    data={data}
-    width={400}
-    height={400}
-    />
-    // <Map position={[51.505, -0.09]}/>
+    <>
+      {/* <Map 
+      position={[37.49993, 127.02632]} 
+      data={rawData}
+      /> */}
+
+      <Voronoi
+      data={data}
+      width={width}
+      height={height}
+      />
+    </>
   );
 }
 

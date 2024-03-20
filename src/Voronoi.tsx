@@ -5,13 +5,17 @@ import * as d3 from "d3";
 interface Props {
   width: number;
   height: number;
-  data: { x: number; y: number }[];
+  data: {
+    name: string,
+    x: number,
+    y: number
+  }[];
 };
 
 
 export const Voronoi = ({ width, height, data }: Props) => {
-  const xScale = d3.scaleLinear().domain([0, 100]).range([0, width]);
-  const yScale = d3.scaleLinear().domain([0, 100]).range([0, height]);
+  const xScale = d3.scaleLinear().domain([0, width]).range([0, width]);
+  const yScale = d3.scaleLinear().domain([0, height]).range([0, height]);
 
   const [hoveredItem, setHoveredItem] = useState<number | null>(null);
 

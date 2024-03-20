@@ -1,6 +1,4 @@
-import { RawData } from "./types"
-
-export const rawData: RawData = {
+export const rawData: GeoJSON.FeatureCollection = {
   "type": "FeatureCollection",
   "features": [
       {
