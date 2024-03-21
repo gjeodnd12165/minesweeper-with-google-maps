@@ -8,5 +8,6 @@
     "moduleResolution": "node", //모듈 해석 방법 설정: 'node' (Node.js)
     "esModuleInterop": true,
     "jsx": "react",
-  }
+  },
+  "include": [ "src", "src/custom.d.ts" ]
 }

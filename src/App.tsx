@@ -1,16 +1,16 @@
-import React from 'react';
+import React, { useState } from 'react';
 import './App.css';
-import Map from './Map';
-import { Voronoi } from './Voronoi';
-import { getConvertedData } from './convertData';
-import { rawData } from './data';
+import Map from './components/Map';
+import { Voronoi } from './components/Voronoi';
+import { getConvertedData } from './logics/convertData';
+import { rawData } from './logics/data';
 
 
 function App() {
   const width = 900, height = 900;
   const data = getConvertedData(rawData, width, height);
-  console.log(rawData);
-  console.log(data);
+
+  const [hoveredCell, setHoveredCell] = useState<number | null>(null);
 
   return (
     <>
@@ -23,6 +23,9 @@ function App() {
       data={data}
       width={width}
       height={height}
+
+      hoveredCell={hoveredCell}
+      setHoveredCell={setHoveredCell}
       />
     </>
   );
