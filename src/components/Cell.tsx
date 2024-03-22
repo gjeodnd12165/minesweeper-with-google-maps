@@ -1,18 +1,24 @@
 import React from "react";
 
-interface Props {
-  id: number;
-  path: string;
+
+interface Checkers {
   isHovered: boolean;
   isAdjacent: boolean;
+}
+interface Props {
+  children: JSX.Element;
+  id: number;
+  path: string;
+  checkers: Checkers;
   hasMine: boolean;
   adjacentMines: number;
-  centroid: [number, number];
-
-  setHoveredItem: React.Dispatch<React.SetStateAction<number | null>>
+  setHoveredCell: React.Dispatch<React.SetStateAction<number | null>>
+  flagCount: number;
 }
 
-export const Cell = ({ id, path, isHovered, isAdjacent, hasMine, adjacentMines, centroid, setHoveredItem }: Props) => {
+export const Cell = ({ children, id, path, checkers: {isHovered, isAdjacent}, hasMine, adjacentMines, setHoveredCell, flagCount }: Props): JSX.Element => {
+  let flagged = false;
+
   const polygon = (
     <path
     key={`cell/${id}`}
@@ -23,29 +29,25 @@ export const Cell = ({ id, path, isHovered, isAdjacent, hasMine, adjacentMines, 
       isAdjacent ? "lightgrey" : "transparent"
     }
     opacity={0.5}
-    onMouseOver={() => {
-      setHoveredItem(id);
-    }}
-    onClick={() => {
-      alert(adjacentMines);
-    }}
     />
   );
-  const circle = (
-    <circle 
-      key={`point/${id}`} 
-      cx={centroid[0]} 
-      cy={centroid[1]} 
-      r={4}
-      fill={hasMine ? "red" : "black"} 
-      />
-  )
-
 
   return (
-    <>
+    <svg
+      onMouseOver={() => {
+        setHoveredCell(id);
+      }}
+      onClick={() => {
+        alert(hasMine ? "I'm a mine!" : adjacentMines);
+      }}
+      onContextMenu={(e: React.MouseEvent<SVGSVGElement, MouseEvent>) => {
+        e.preventDefault();
+        flagged = !flagged
+        flagged ? flagCount++ : flagCount--;
+      }}
+    >
       {polygon}
-      {circle}
-    </>
+      {children}
+    </svg>
   )
 }
