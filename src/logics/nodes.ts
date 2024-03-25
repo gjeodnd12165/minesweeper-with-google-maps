@@ -2,7 +2,7 @@ import axios from 'axios';
 import osmtogeojson from 'osmtogeojson';
 
 
-interface BBox {
+export interface BBox {
   south: number;
   west: number;
   north: number;
@@ -49,30 +49,19 @@ function getBoundsAroundLocation(location: Location, radiusMeters: number): BBox
 }
 
 // 메인 함수
-async function getNodes(address: string): Promise<{ geojson: GeoJSON.FeatureCollection; bbox: BBox; } | undefined> {
-  try {
-    // 주소로부터 위도와 경도를 가져옴
-    const location: Location = await getCoordinates(address);
-    const rectBounds: BBox = getBoundsAroundLocation(location, 200);
+async function getNodes(address: string): Promise<GeoJSON.FeatureCollection> {
+  // 주소로부터 위도와 경도를 가져옴
+  const location: Location = await getCoordinates(address);
+  const rectBounds: BBox = getBoundsAroundLocation(location, 200);
+  // 주어진 좌표 주변의 건물 및 도로 정보를 가져옴
+  const nearbyData: JSON = (await getNearbyData(rectBounds));
+  // convert osm data to geojson
+  const geoJsonData: GeoJSON.FeatureCollection = osmtogeojson(nearbyData, {
+    verbose: false,
+    flatProperties: true
+  });
 
-
-    // 주어진 좌표 주변의 건물 및 도로 정보를 가져옴
-    const nearbyData: JSON = (await getNearbyData(rectBounds));
-
-    // convert osm data to geojson
-    const geoJsonData: GeoJSON.FeatureCollection = osmtogeojson(nearbyData, {
-      verbose: false,
-      flatProperties: true
-    });
-
-    return {
-      geojson: geoJsonData,
-      bbox: rectBounds
-    };
-    
-  } catch (error) {
-    console.error("Error:", error);
-  }
+  return geoJsonData;
 }
 
 export default getNodes;

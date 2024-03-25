@@ -4,6 +4,7 @@ import React from "react";
 interface Checkers {
   isHovered: boolean;
   isAdjacent: boolean;
+  isFlagged: boolean;
 }
 interface Props {
   children: JSX.Element;
@@ -12,12 +13,14 @@ interface Props {
   checkers: Checkers;
   hasMine: boolean;
   adjacentMines: number;
-  setHoveredCell: React.Dispatch<React.SetStateAction<number | null>>
-  flagCount: number;
+  setHoveredCell: React.Dispatch<React.SetStateAction<number | null>>;
+  flaggedCells: number[];
+  setFlaggedCells: React.Dispatch<React.SetStateAction<number[]>>;
+  clickedCells: number[];
+  setClickedCells: React.Dispatch<React.SetStateAction<number[]>>;
 }
 
-export const Cell = ({ children, id, path, checkers: {isHovered, isAdjacent}, hasMine, adjacentMines, setHoveredCell, flagCount }: Props): JSX.Element => {
-  let flagged = false;
+const Cell = ({ children, id, path, checkers: {isHovered, isAdjacent, isFlagged}, hasMine, adjacentMines, setHoveredCell, flaggedCells, setFlaggedCells, clickedCells, setClickedCells }: Props): React.JSX.Element => {
 
   const polygon = (
     <path
@@ -38,12 +41,17 @@ export const Cell = ({ children, id, path, checkers: {isHovered, isAdjacent}, ha
         setHoveredCell(id);
       }}
       onClick={() => {
-        alert(hasMine ? "I'm a mine!" : adjacentMines);
+        if(hasMine){
+          alert("GAME OVER!");
+        }
+        else {
+          setClickedCells([...clickedCells, id]);
+        }
       }}
       onContextMenu={(e: React.MouseEvent<SVGSVGElement, MouseEvent>) => {
         e.preventDefault();
-        flagged = !flagged
-        flagged ? flagCount++ : flagCount--;
+        // 깃발이 있으면 빼고, 없으면 넣기
+        setFlaggedCells(isFlagged ? flaggedCells.filter((cell) => (id !== cell)) : [...flaggedCells, id]);          
       }}
     >
       {polygon}
@@ -51,3 +59,5 @@ export const Cell = ({ children, id, path, checkers: {isHovered, isAdjacent}, ha
     </svg>
   )
 }
+
+export default Cell;

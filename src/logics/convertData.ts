@@ -1,8 +1,13 @@
 import * as d3 from 'd3';
 
 
-export const getConvertedData = (rawData: GeoJSON.FeatureCollection, width: number, height: number) => {
-  
+export interface ConvertedData {
+  name: string;
+  x: number;
+  y: number;
+}
+
+const getConvertedData = (rawData: GeoJSON.FeatureCollection, width: number, height: number): ConvertedData[] => {
   /**
    * d3 projection needed
    */
@@ -22,3 +27,5 @@ export const getConvertedData = (rawData: GeoJSON.FeatureCollection, width: numb
     
   return refinedData;
 }
+
+export default getConvertedData;
