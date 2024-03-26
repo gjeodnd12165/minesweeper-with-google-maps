@@ -8,10 +8,11 @@ interface Props {
   path: string;
   isHovered: boolean;
   isAdjacent: boolean;
+  isClicked: boolean;
   handlers: Handlers;
 }
 
-const Cell = ({ children, id, path, isHovered, isAdjacent, handlers: {handleCellHover, handleCellLClick, handleCellRClick} }: Props): React.JSX.Element => {
+const Cell = ({ children, id, path, isHovered, isAdjacent, isClicked, handlers: {handleCellHover, handleCellLClick, handleCellRClick} }: Props): React.JSX.Element => {
 
   const polygon = (
     <path
@@ -19,6 +20,7 @@ const Cell = ({ children, id, path, isHovered, isAdjacent, handlers: {handleCell
     d={path}
     stroke="grey"
     fill={
+      isClicked ? "#FFFFAA" :
       isHovered ? "grey" :
       isAdjacent ? "lightgrey" : "transparent"
     }

@@ -13,7 +13,9 @@ interface Props {
 
 export const CellImage = ({ id, cx, cy, adjacentMines, hasMine, isFlagged, isClicked }: Props) => {
   return (
-    isClicked ? <text x={cx} y={cy} textAnchor="middle" fontSize="10" fill="black">{adjacentMines}</text> : 
+    isClicked ? 
+    adjacentMines ? <text x={cx} y={cy} textAnchor="middle" fontSize="10" fill="black">{adjacentMines}</text> : <></> 
+    : 
     <circle 
       key={`point/${id}`} 
       cx={cx} 
@@ -21,7 +23,8 @@ export const CellImage = ({ id, cx, cy, adjacentMines, hasMine, isFlagged, isCli
       r={4}
       fill={
         isFlagged ? "blue" :
-        hasMine ? "red" : "black"
+        "transparent"
+        // hasMine ? "red" : "black"
       } 
     />
   );

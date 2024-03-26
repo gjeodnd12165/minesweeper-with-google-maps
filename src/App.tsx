@@ -7,10 +7,11 @@ import getData from './logics/data';
 import { ConvertedData } from './logics/convertData';
 import LocationForm from './components/LocationForm';
 import { Handlers, Options } from './types';
+import * as d3 from 'd3';
 
 
 function App() {
-  const width = 900, height = 900, mineRate = 10;
+  const width = 900, height = 900, mineRate = 7;
   const [data, setData] = useState<ConvertedData[] | null>(null);
   const [location, setLocation] = useState<string>("강남역");
   useEffect(() => {
@@ -22,11 +23,11 @@ function App() {
     fetchData();
   }, [location]);
 
-  const [clickedCells, setClickedCells] = useState<number[]> ([]);
+  const [revealedCells, setRevealedCells] = useState<number[]> ([]);
   const [flaggedCells, setFlaggedCells] = useState<number[]> ([]);
   const [hoveredCell, setHoveredCell] = useState<number | null>(null);
   useEffect(() => {
-    setClickedCells([]);
+    setRevealedCells([]);
     setFlaggedCells([]);
     setHoveredCell(null);
   }, [data]);
@@ -38,21 +39,65 @@ function App() {
     const b = _.isEqual(mines.sort(), flaggedCells.sort());
     return b;
   }, [data, flaggedCells]);
-  
+
+  const xScale = d3.scaleLinear().domain([0, width]).range([0, width]);
+  const yScale = d3.scaleLinear().domain([0, height]).range([0, height]);
+
+  const delaunay:d3.Delaunay<d3.Delaunay.Point> = useMemo(() => {
+    const formattedData: [number, number][] = data?.map((d) => [xScale(d.x), yScale(d.y)]) ?? [[0,0]];
+    return d3.Delaunay.from(formattedData);
+  }, [data]);
+
+  const voronoi = useMemo(() => {
+    return delaunay.voronoi([0, 0, width, height]);
+  }, [data]);
+
+  const adjacentCells: number[][] = useMemo(() => {
+    return _.range(data?.length ?? 0).map((cell) => {
+      return [...voronoi.neighbors(cell)]
+    });
+  }, [data]);
+  const adjacentMines: number[] = useMemo(() => {
+    return adjacentCells.map((cell) => {
+      return cell.filter((adjs) => (mines.includes(adjs))).length
+    });
+  }, [data]);
+
+  /* handlers */
   const handleCellHover = (id: number): React.MouseEventHandler<SVGSVGElement> => (e: React.MouseEvent<SVGSVGElement>) => {
     setHoveredCell(id);
   };
 
-  const handleCellLClick = (clickedCellId: number): React.MouseEventHandler<SVGSVGElement> => (e: React.MouseEvent<SVGSVGElement>) => {
-    if (mines.includes(clickedCellId)){
+  const handleCellLClick = (clickedCell: number): React.MouseEventHandler<SVGSVGElement> => (e: React.MouseEvent<SVGSVGElement>) => {
+    if (mines.includes(clickedCell)){
       alert("GAME OVER!");
       return;
     }
-
-    const addClickedCells = (id: number) => {
-      setClickedCells([...clickedCells, id]);
+    
+    if (adjacentMines[clickedCell]) {
+      // 주변에 지뢰가 있다면 그 셀만 밝히기
+      setRevealedCells([...revealedCells, clickedCell]);
     }
-    // some graph traversal logics here.
+    else {
+      // 주변 지뢰가 없다면 BFS 
+      const queue = [clickedCell];
+      const visited = [clickedCell, ...revealedCells];
+      while (queue.length > 0) {
+        const currentCell: number | undefined = queue.shift();
+        if (currentCell === undefined) continue;
+        // 현재 셀에 인접한 셀 순회
+        for (const cell of adjacentCells[currentCell]) {
+          // 인접한 셀이 밝혀진 셀이 아니거나, 지뢰가 아니라면 밝혀질 셀 목록인 큐에 추가
+          if (!visited.includes(cell)) {
+            if (!adjacentMines[cell]){
+              queue.push(cell);              
+            }
+            visited.push(cell);
+          }
+        }
+      }
+      setRevealedCells([...revealedCells, ...visited]);
+    }
   }
 
   const handleCellRClick = (id: number): React.MouseEventHandler<SVGSVGElement> => (e: React.MouseEvent<SVGSVGElement>) => {
@@ -66,6 +111,7 @@ function App() {
     handleCellLClick: handleCellLClick,
     handleCellRClick: handleCellRClick
   }
+  /* handlers */
   
   const options: Options = {
     width: width,
@@ -100,10 +146,15 @@ function App() {
             hoveredCell={hoveredCell}
             mines={mines}
             flaggedCells={flaggedCells}
-            clickedCells={clickedCells}
+            clickedCells={revealedCells}
             handlers={handlers}
-          />
 
+            voronoi={voronoi}
+            adjacentCells={adjacentCells}
+            adjacentMines={adjacentMines}
+            xScale={xScale}
+            yScale={yScale}
+          />
         </>
       )}
     </>
