@@ -6,6 +6,7 @@ import _ from 'lodash';
 import getData from './logics/data';
 import { ConvertedData } from './logics/convertData';
 import LocationForm from './components/LocationForm';
+import { Handlers, Options } from './types';
 
 
 function App() {
@@ -38,6 +39,38 @@ function App() {
     return b;
   }, [data, flaggedCells]);
   
+  const handleCellHover = (id: number): React.MouseEventHandler<SVGSVGElement> => (e: React.MouseEvent<SVGSVGElement>) => {
+    setHoveredCell(id);
+  };
+
+  const handleCellLClick = (clickedCellId: number): React.MouseEventHandler<SVGSVGElement> => (e: React.MouseEvent<SVGSVGElement>) => {
+    if (mines.includes(clickedCellId)){
+      alert("GAME OVER!");
+      return;
+    }
+
+    const addClickedCells = (id: number) => {
+      setClickedCells([...clickedCells, id]);
+    }
+    // some graph traversal logics here.
+  }
+
+  const handleCellRClick = (id: number): React.MouseEventHandler<SVGSVGElement> => (e: React.MouseEvent<SVGSVGElement>) => {
+    e.preventDefault();
+    // 깃발이 있으면 빼고, 없으면 넣기
+    setFlaggedCells(flaggedCells.includes(id) ? flaggedCells.filter((cell) => (id !== cell)) : [...flaggedCells, id]);
+  }
+
+  const handlers: Handlers = {
+    handleCellHover: handleCellHover,
+    handleCellLClick: handleCellLClick,
+    handleCellRClick: handleCellRClick
+  }
+  
+  const options: Options = {
+    width: width,
+    height: height,
+  }
 
   return (
     <>
@@ -63,18 +96,14 @@ function App() {
   
           <Voronoi
             data={data}
-            option={{
-              width: width,
-              height: height
-            }}
+            options={options}
             hoveredCell={hoveredCell}
-            setHoveredCell={setHoveredCell}
             mines={mines}
             flaggedCells={flaggedCells}
-            setFlaggedCells={setFlaggedCells}
             clickedCells={clickedCells}
-            setClickedCells={setClickedCells}
+            handlers={handlers}
           />
+
         </>
       )}
     </>

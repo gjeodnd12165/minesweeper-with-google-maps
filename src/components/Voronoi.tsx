@@ -3,30 +3,21 @@ import * as d3 from "d3";
 import Cell from "./Cell";
 import * as _ from 'lodash';
 import { CellImage } from "./CellImage";
+import { Handlers, Datum, Options } from "../types";
 
-interface Datum {
-  name: string;
-  x: number;
-  y: number
-}
-interface Option {
-  width: number;
-  height: number;
-}
+
 interface Props {
   data: Datum[];
-  option: Option;
+  options: Options;
 
   hoveredCell: number | null;
-  setHoveredCell: React.Dispatch<React.SetStateAction<number | null>>
   mines: number[];
   flaggedCells: number[];
-  setFlaggedCells: React.Dispatch<React.SetStateAction<number[]>>
   clickedCells: number[];
-  setClickedCells: React.Dispatch<React.SetStateAction<number[]>>
+  handlers: Handlers;
 };
 
-const Voronoi = ({ data, option: {width, height}, hoveredCell, setHoveredCell, mines, flaggedCells, setFlaggedCells, clickedCells, setClickedCells }: Props): React.JSX.Element => {
+const Voronoi = ({ data, options: {width, height}, hoveredCell, mines, flaggedCells, clickedCells, handlers  }: Props): React.JSX.Element => {
   const xScale = d3.scaleLinear().domain([0, width]).range([0, width]);
   const yScale = d3.scaleLinear().domain([0, height]).range([0, height]);
 
@@ -51,6 +42,7 @@ const Voronoi = ({ data, option: {width, height}, hoveredCell, setHoveredCell, m
     });
   }, [data]);
 
+
   
   const voronoiCells = data.map((d, i) => {
     const path = voronoi.renderCell(i);
@@ -62,19 +54,10 @@ const Voronoi = ({ data, option: {width, height}, hoveredCell, setHoveredCell, m
           id={i}
           path={path}
 
-          checkers={{
-            isHovered: i==hoveredCell,
-            isAdjacent: adjacentCells[hoveredCell ?? -1]?.includes(i),
-            isFlagged: isFlagged
-          }}
-          hasMine={mines.includes(i)}
-          adjacentMines={adjacentMines[i]}
 
-          setHoveredCell={setHoveredCell}
-          flaggedCells={flaggedCells}
-          setFlaggedCells={setFlaggedCells}
-          clickedCells={clickedCells}
-          setClickedCells={setClickedCells}
+          isHovered={i==hoveredCell}
+          isAdjacent={adjacentCells[hoveredCell ?? -1]?.includes(i)}
+          handlers={handlers}
         >
           <CellImage
             id={i}
