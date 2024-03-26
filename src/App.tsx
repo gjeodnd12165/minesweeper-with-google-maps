@@ -13,6 +13,7 @@ function App() {
   const [data, setData] = useState<ConvertedData[] | null>(null);
   const [location, setLocation] = useState<string>("강남역");
   useEffect(() => {
+    setData(null);
     const fetchData = async () => {
       const d: ConvertedData[] = await getData(location, width, height);
       setData(d);
