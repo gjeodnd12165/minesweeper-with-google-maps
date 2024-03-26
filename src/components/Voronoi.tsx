@@ -33,7 +33,7 @@ const Voronoi = ({ data, option: {width, height}, hoveredCell, setHoveredCell, m
   const delaunay:d3.Delaunay<d3.Delaunay.Point> = useMemo(() => {
     const formattedData: [number, number][] = data.map((d) => [xScale(d.x), yScale(d.y)]);
     return d3.Delaunay.from(formattedData);
-  }, []);
+  }, [data]);
 
   const voronoi = useMemo(() => {
     return delaunay.voronoi([0, 0, width, height]);

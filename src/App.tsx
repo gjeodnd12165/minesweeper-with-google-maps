@@ -23,13 +23,17 @@ function App() {
   const [clickedCells, setClickedCells] = useState<number[]> ([]);
   const [flaggedCells, setFlaggedCells] = useState<number[]> ([]);
   const [hoveredCell, setHoveredCell] = useState<number | null>(null);
+  useEffect(() => {
+    setClickedCells([]);
+    setFlaggedCells([]);
+    setHoveredCell(null);
+  }, [data]);
   const mines: number[] = useMemo(() => {
     if (!data) return new Array<number>();
     return _.sampleSize(_.range(data.length), data.length / mineRate);
   }, [data]);
   const cleared: boolean = useMemo(() => {
     const b = _.isEqual(mines.sort(), flaggedCells.sort());
-    console.log(b);
     return b;
   }, [data, flaggedCells]);
   
