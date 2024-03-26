@@ -11,6 +11,5 @@ Now I will use voronoi diagram to define areas.
 - [ ] give a user some selectablity of region
 
 ## BUGS
-- [ ] At the start, CLEAR! message is showing
 - [ ] If I change the location with form, `Cell`s don't change.  
 It retains its shape and position, but the number of the cells is changed.

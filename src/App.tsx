@@ -9,28 +9,29 @@ import LocationForm from './components/LocationForm';
 
 
 function App() {
-  const width = 900, height = 900;
+  const width = 900, height = 900, mineRate = 10;
   const [data, setData] = useState<ConvertedData[] | null>(null);
   const [location, setLocation] = useState<string>("강남역");
   useEffect(() => {
-    gd();
+    const fetchData = async () => {
+      const d: ConvertedData[] = await getData(location, width, height);
+      setData(d);
+    }
+    fetchData();
   }, [location]);
-  const gd = async () => {
-    const d: ConvertedData[] = await getData(location, width, height);
-    setData(d);
-  }
 
   const [clickedCells, setClickedCells] = useState<number[]> ([]);
   const [flaggedCells, setFlaggedCells] = useState<number[]> ([]);
   const [hoveredCell, setHoveredCell] = useState<number | null>(null);
   const mines: number[] = useMemo(() => {
     if (!data) return new Array<number>();
-    console.log("mines");
-    return _.sampleSize(_.range(data.length), data.length / 10);
+    return _.sampleSize(_.range(data.length), data.length / mineRate);
   }, [data]);
   const cleared: boolean = useMemo(() => {
-    return _.isEqual(mines.sort(), flaggedCells.sort());
-  }, [flaggedCells]);
+    const b = _.isEqual(mines.sort(), flaggedCells.sort());
+    console.log(b);
+    return b;
+  }, [data, flaggedCells]);
   
 
   return (

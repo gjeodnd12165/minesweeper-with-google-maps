@@ -36,7 +36,6 @@ const Voronoi = ({ data, option: {width, height}, hoveredCell, setHoveredCell, m
   }, []);
 
   const voronoi = useMemo(() => {
-    console.log("voronoi");
     return delaunay.voronoi([0, 0, width, height]);
   }, [data]);
 
