@@ -12,6 +12,5 @@ Now I will use voronoi diagram to define areas.
         - pattern or sturucture improvements
             - reduce use*Something* functions -> consider useContext
 - [x] use the data from overpass api
-- [ ] give a user some selectablity of region
 
 ## BUGS

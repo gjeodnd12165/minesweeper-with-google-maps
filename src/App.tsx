@@ -73,6 +73,7 @@ function App() {
       alert("GAME OVER!");
       return;
     }
+    if (revealedCells.includes(clickedCell)) return;
     
     if (adjacentMines[clickedCell]) {
       // 주변에 지뢰가 있다면 그 셀만 밝히기
@@ -96,7 +97,7 @@ function App() {
           }
         }
       }
-      setRevealedCells([...revealedCells, ...visited]);
+      setRevealedCells([...visited]);
     }
   }
 
