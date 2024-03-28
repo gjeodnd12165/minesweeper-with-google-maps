@@ -1,4 +1,4 @@
-import React, { createContext, useContext, useEffect, useMemo, useState } from 'react';
+import React, { useEffect, useMemo, useState } from 'react';
 import './App.css';
 import Map from './components/Map';
 import Voronoi from './components/Voronoi';
@@ -8,6 +8,7 @@ import { ConvertedData } from './logics/convertData';
 import LocationForm from './components/LocationForm';
 import { Handlers, Options } from './types';
 import * as d3 from 'd3';
+import { GameOverContext } from './context/GameContext';
 
 
 function App() {
@@ -27,6 +28,12 @@ function App() {
   const [flaggedCells, setFlaggedCells] = useState<number[]> ([]);
   const [hoveredCell, setHoveredCell] = useState<number | null>(null);
   const [mines, setMines] = useState<number[]>([]);
+  const [isGameOver, setIsGameOver] = useState<boolean>(false);
+  useEffect(() => {
+    if (isGameOver) {
+      alert("Game Over!");
+    }
+  }, [isGameOver]);
 
   useEffect(() => {
     setRevealedCells([]);
@@ -80,7 +87,7 @@ function App() {
         return; 
       }
       else {
-        alert("GAME OVER!");
+        setIsGameOver(true);
         return;
       }
     }
@@ -132,7 +139,7 @@ function App() {
   }
 
   return (
-    <>
+    <GameOverContext.Provider value={isGameOver}>
       <LocationForm
         location={location}
         setLocation={setLocation}
@@ -170,7 +177,7 @@ function App() {
           />
         </>
       )}
-    </>
+    </GameOverContext.Provider>
   );
   
 }
