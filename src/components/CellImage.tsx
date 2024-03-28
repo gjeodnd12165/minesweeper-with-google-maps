@@ -15,17 +15,15 @@ export const CellImage = ({ id, cx, cy, adjacentMines, hasMine, isFlagged, isCli
   return (
     isClicked ? 
     adjacentMines ? <text x={cx} y={cy} textAnchor="middle" fontSize="10" fill="black">{adjacentMines}</text> : <></> 
-    : 
+    : isFlagged ? 
     <circle 
       key={`point/${id}`} 
       cx={cx} 
       cy={cy} 
       r={4}
       fill={
-        isFlagged ? "blue" :
-        "transparent"
-        // hasMine ? "red" : "black"
-      } 
-    />
+        "blue"
+    } 
+    /> : <></>
   );
 }

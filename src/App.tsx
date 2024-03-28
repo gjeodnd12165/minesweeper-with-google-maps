@@ -11,7 +11,7 @@ import * as d3 from 'd3';
 
 
 function App() {
-  const width = 900, height = 900, mineRate = 7;
+  const width = 900, height = 900, mineRate = 2;
   const [data, setData] = useState<ConvertedData[] | null>(null);
   const [location, setLocation] = useState<string>("강남역");
   useEffect(() => {
@@ -26,19 +26,17 @@ function App() {
   const [revealedCells, setRevealedCells] = useState<number[]> ([]);
   const [flaggedCells, setFlaggedCells] = useState<number[]> ([]);
   const [hoveredCell, setHoveredCell] = useState<number | null>(null);
+  const [mines, setMines] = useState<number[]>([]);
+
   useEffect(() => {
     setRevealedCells([]);
     setFlaggedCells([]);
     setHoveredCell(null);
-  }, [data]);
-  const mines: number[] = useMemo(() => {
-    if (!data) return new Array<number>();
-    return _.sampleSize(_.range(data.length), data.length / mineRate);
-  }, [data]);
+    setMines(data ? _.sampleSize(_.range(data.length), data.length / mineRate) : []);
+  }, [data]); // data가 재 로딩 되었을 때 실행되는 함수
   const cleared: boolean = useMemo(() => {
-    const b = _.isEqual(mines.sort(), flaggedCells.sort());
-    return b;
-  }, [data, flaggedCells]);
+    return _.isEqual(mines.sort(), flaggedCells.sort());
+  }, [mines, flaggedCells]);
 
   const xScale = d3.scaleLinear().domain([0, width]).range([0, width]);
   const yScale = d3.scaleLinear().domain([0, height]).range([0, height]);
@@ -61,7 +59,7 @@ function App() {
     return adjacentCells.map((cell) => {
       return cell.filter((adjs) => (mines.includes(adjs))).length
     });
-  }, [data]);
+  }, [mines]);
 
   /* handlers */
   const handleCellHover = (id: number): React.MouseEventHandler<SVGSVGElement> => (e: React.MouseEvent<SVGSVGElement>) => {
@@ -69,9 +67,22 @@ function App() {
   };
 
   const handleCellLClick = (clickedCell: number): React.MouseEventHandler<SVGSVGElement> => (e: React.MouseEvent<SVGSVGElement>) => {
-    if (mines.includes(clickedCell)){
-      alert("GAME OVER!");
-      return;
+    if (mines.includes(clickedCell)) {
+      if (!revealedCells.length) {
+        let newMines = data ? _.sampleSize(_.range(data.length), data.length / mineRate) : [];
+        while (newMines.includes(clickedCell)) { 
+          // re-calculate mines until mines[] doesn't inlcude clickedCell
+          console.log("re-calc mines");
+          newMines = data ? _.sampleSize(_.range(data.length), data.length / mineRate) : [];
+        }
+        setMines(newMines);
+        setRevealedCells([clickedCell]);
+        return; 
+      }
+      else {
+        alert("GAME OVER!");
+        return;
+      }
     }
     if (revealedCells.includes(clickedCell)) return;
     

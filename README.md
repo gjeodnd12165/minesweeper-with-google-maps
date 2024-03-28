@@ -3,7 +3,8 @@ This project is to make minesweeper with map.
 Now I will use voronoi diagram to define areas.
 ## Todo
 - [ ] make actual minesweeper game with the data
-    - game logic completed
+    - baisc game logic completed
+        - reveal all mines when game over
     - visual improvements
         - traditional minesweeper theme
         - show name when cell is being hovered
