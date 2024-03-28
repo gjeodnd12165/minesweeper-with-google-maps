@@ -115,6 +115,7 @@ function App() {
   const handleCellRClick = (id: number): React.MouseEventHandler<SVGSVGElement> => (e: React.MouseEvent<SVGSVGElement>) => {
     e.preventDefault();
     // 깃발이 있으면 빼고, 없으면 넣기
+    if (revealedCells.includes(id)) return; // 이미 밝혀진 셀이면 깃발 X
     setFlaggedCells(flaggedCells.includes(id) ? flaggedCells.filter((cell) => (id !== cell)) : [...flaggedCells, id]);
   }
 
