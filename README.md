@@ -4,9 +4,9 @@ Now I will use voronoi diagram to define areas.
 ## Todo
 - [ ] make actual minesweeper game with the data
     - baisc game logic completed
+        - auto reveal button when all mines adjacent is flagged
     - visual improvements
         - traditional minesweeper theme
-        - show name when cell is being hovered
     - programmaic improvements
         - performance improvements
         - pattern or sturucture improvements

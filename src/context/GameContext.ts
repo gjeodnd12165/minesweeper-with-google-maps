@@ -1,3 +1,6 @@
 import { createContext } from "react";
 
-export const GameOverContext = createContext(false);
+export const GameContext = createContext({
+  isGameOver: false,
+  names: ["nodes not found"]
+});

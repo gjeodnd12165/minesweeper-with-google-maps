@@ -8,7 +8,7 @@ import { ConvertedData } from './logics/convertData';
 import LocationForm from './components/LocationForm';
 import { Handlers, Options } from './types';
 import * as d3 from 'd3';
-import { GameOverContext } from './context/GameContext';
+import { GameContext } from './context/GameContext';
 
 
 function App() {
@@ -48,11 +48,13 @@ function App() {
   const xScale = d3.scaleLinear().domain([0, width]).range([0, width]);
   const yScale = d3.scaleLinear().domain([0, height]).range([0, height]);
 
+  const names: string[] = useMemo(() => {
+    return data?.map((d) => d.name) ?? ["nodes not found"];
+  }, [data]);
   const delaunay:d3.Delaunay<d3.Delaunay.Point> = useMemo(() => {
     const formattedData: [number, number][] = data?.map((d) => [xScale(d.x), yScale(d.y)]) ?? [[0,0]];
     return d3.Delaunay.from(formattedData);
   }, [data]);
-
   const voronoi = useMemo(() => {
     return delaunay.voronoi([0, 0, width, height]);
   }, [data]);
@@ -139,7 +141,10 @@ function App() {
   }
 
   return (
-    <GameOverContext.Provider value={isGameOver}>
+    <GameContext.Provider value={{
+      isGameOver: isGameOver,
+      names: names
+    }}>
       <LocationForm
         location={location}
         setLocation={setLocation}
@@ -177,7 +182,7 @@ function App() {
           />
         </>
       )}
-    </GameOverContext.Provider>
+    </GameContext.Provider>
   );
   
 }

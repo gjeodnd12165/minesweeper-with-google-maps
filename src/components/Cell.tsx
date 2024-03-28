@@ -1,6 +1,6 @@
 import React, { useContext } from "react";
 import { Handlers } from "../types";
-import { GameOverContext } from "../context/GameContext";
+import { GameContext } from "../context/GameContext";
 
 
 interface Props {
@@ -14,7 +14,7 @@ interface Props {
 }
 
 const Cell = ({ children, id, path, isHovered, isAdjacent, isClicked, handlers: {handleCellHover, handleCellLClick, handleCellRClick} }: Props): React.JSX.Element => {
-  const isGameOver = useContext(GameOverContext);
+  const { isGameOver, names } = useContext(GameContext);
 
   const polygon = (
     <path
@@ -31,15 +31,15 @@ const Cell = ({ children, id, path, isHovered, isAdjacent, isClicked, handlers: 
   );
 
   return (
-    isGameOver ? <svg>{polygon}{children}</svg> :
-    <svg
-      onMouseOver={handleCellHover(id)}
-      onClick={handleCellLClick(id)}
-      onContextMenu={handleCellRClick(id)}
+    <g
+      onMouseOver={isGameOver ? undefined : handleCellHover(id)}
+      onClick={isGameOver ? undefined : handleCellLClick(id)}
+      onContextMenu={isGameOver ? undefined : handleCellRClick(id)}
     >
+      <title>{names[id]}</title>
       {polygon}
       {children}
-    </svg>
+    </g>
   )
 }
 

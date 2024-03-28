@@ -1,5 +1,5 @@
 import React, { useContext } from "react";
-import { GameOverContext } from "../context/GameContext";
+import { GameContext } from "../context/GameContext";
 
 
 interface Props {
@@ -13,7 +13,7 @@ interface Props {
 }
 
 export const CellImage = ({ id, cx, cy, adjacentMines, hasMine, isFlagged, isClicked }: Props) => {
-  const isGameOver = useContext(GameOverContext);
+  const { isGameOver } = useContext(GameContext);
 
   return (
     isGameOver && hasMine ? <circle 
