@@ -1,6 +1,7 @@
 import React, { useContext } from "react";
 import { Handlers } from "../types";
 import { GameContext } from "../context/GameContext";
+import { ThemeContext } from "../context/ThemeContext";
 
 
 interface Props {
@@ -9,26 +10,29 @@ interface Props {
   path: string;
   isHovered: boolean;
   isAdjacent: boolean;
-  isClicked: boolean;
+  isRevealed: boolean;
   handlers: Handlers;
 }
 
-const Cell = ({ children, id, path, isHovered, isAdjacent, isClicked, handlers: {handleCellHover, handleCellLClick, handleCellRClick} }: Props): React.JSX.Element => {
+const Cell = ({ children, id, path, isHovered, isAdjacent, isRevealed, handlers: {handleCellHover, handleCellLClick, handleCellRClick} }: Props): React.JSX.Element => {
   const { isGameOver, names } = useContext(GameContext);
+  const { revealedColor, hoveredColor, adjacentColor, normalColor } = useContext(ThemeContext);
 
   const polygon = (
     <path
-    key={`cell/${id}`}
-    d={path}
-    stroke="grey"
-    fill={
-      isClicked ? "#FFFFAA" :
-      isHovered ? "grey" :
-      isAdjacent ? "lightgrey" : "transparent"
-    }
-    opacity={0.5}
+      key={`cell/${id}`}
+      d={path}
+      stroke="transparent"
+      fill={
+        isRevealed ? revealedColor :
+        isHovered ? hoveredColor :
+        isAdjacent ? adjacentColor : normalColor
+      }
+      filter={`url(#${isRevealed ? "revealed" : "normal"})`}
     />
   );
+
+
 
   return (
     <g
