@@ -60,7 +60,7 @@ const Voronoi = ({ data, options: {width, height}, hoveredCell, mines, flaggedCe
     <defs>
       <filter id="normal">
         <feGaussianBlur in="SourceAlpha" stdDeviation="10" result="blur1"/>
-        <feSpecularLighting result="specOut" in="blur1" specularConstant="1.2" specularExponent="12" lighting-color="#fff">
+        <feSpecularLighting result="specOut" in="blur1" specularConstant="1.2" specularExponent="12" lightingColor="#fff">
           <feDistantLight azimuth="225" elevation="20"/>
         </feSpecularLighting>
         <feComposite in="SourceGraphic" in2="specOut" operator="arithmetic" k1="0" k2="1.2" k3="1.2" k4="0" result="result"/>

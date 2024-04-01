@@ -12,7 +12,7 @@ import { GameContext } from './context/GameContext';
 
 
 function App() {
-  const width = 900, height = 900, mineRate = 2;
+  const width = 900, height = 900, mineRate = 10;
   const [data, setData] = useState<ConvertedData[] | null>(null);
   const [location, setLocation] = useState<string>("강남역");
   useEffect(() => {
@@ -76,6 +76,11 @@ function App() {
   };
 
   const handleCellLClick = (clickedCell: number): React.MouseEventHandler<SVGSVGElement> => (e: React.MouseEvent<SVGSVGElement>) => {
+    if (revealedCells.includes(clickedCell)) return;
+    revealCell(clickedCell);
+  }
+
+  const revealCell = (clickedCell: number) => {
     if (mines.includes(clickedCell)) {
       if (!revealedCells.length) {
         let newMines = data ? _.sampleSize(_.range(data.length), data.length / mineRate) : [];
@@ -93,7 +98,6 @@ function App() {
         return;
       }
     }
-    if (revealedCells.includes(clickedCell)) return;
     
     if (adjacentMines[clickedCell]) {
       // 주변에 지뢰가 있다면 그 셀만 밝히기
@@ -121,6 +125,18 @@ function App() {
     }
   }
 
+  const handleDoubleClick = (id: number): React.MouseEventHandler<SVGSVGElement> => (e: React.MouseEvent<SVGSVGElement>) => {
+    if (!revealedCells.includes(id)) return;
+    const adjacentFlaggedCells = adjacentCells[id].filter((cellId) => flaggedCells.includes(cellId));
+    if (adjacentFlaggedCells.length === adjacentMines[id]) {
+      adjacentCells[id]
+        .filter((cellId) => !flaggedCells.includes(cellId))
+        .forEach((cellId) => {
+          revealCell(cellId);
+        })
+    }
+  }
+
   const handleCellRClick = (id: number): React.MouseEventHandler<SVGSVGElement> => (e: React.MouseEvent<SVGSVGElement>) => {
     e.preventDefault();
     // 깃발이 있으면 빼고, 없으면 넣기
@@ -131,6 +147,7 @@ function App() {
   const handlers: Handlers = {
     handleCellHover: handleCellHover,
     handleCellLClick: handleCellLClick,
+    handleDoubleClick: handleDoubleClick,
     handleCellRClick: handleCellRClick
   }
   /* handlers */

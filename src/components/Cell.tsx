@@ -14,7 +14,7 @@ interface Props {
   handlers: Handlers;
 }
 
-const Cell = ({ children, id, path, isHovered, isAdjacent, isRevealed, handlers: {handleCellHover, handleCellLClick, handleCellRClick} }: Props): React.JSX.Element => {
+const Cell = ({ children, id, path, isHovered, isAdjacent, isRevealed, handlers: {handleCellHover, handleCellLClick, handleDoubleClick, handleCellRClick} }: Props): React.JSX.Element => {
   const { isGameOver, names } = useContext(GameContext);
   const { revealedColor, hoveredColor, adjacentColor, normalColor } = useContext(ThemeContext);
 
@@ -38,6 +38,7 @@ const Cell = ({ children, id, path, isHovered, isAdjacent, isRevealed, handlers:
     <g
       onMouseOver={isGameOver ? undefined : handleCellHover(id)}
       onClick={isGameOver ? undefined : handleCellLClick(id)}
+      onDoubleClick={isGameOver ? undefined: handleDoubleClick(id)}
       onContextMenu={isGameOver ? undefined : handleCellRClick(id)}
     >
       <title>{names[id]}</title>
