@@ -23,6 +23,7 @@ async function getCoordinates(address: string): Promise<Location> {
 
 // Overpass API를 사용하여 주어진 좌표 주변의 건물 및 도로 정보를 가져오는 함수
 async function getNearbyData(rectBounds: BBox): Promise<JSON> {
+  console.log(rectBounds);
   const query = `
   [out:json];
   node[name]
