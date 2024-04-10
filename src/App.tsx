@@ -1,7 +1,7 @@
 import React, { useEffect, useMemo, useState } from 'react';
 import './App.css';
 import Map from './components/Map';
-import Voronoi from './components/Voronoi';
+import Board from './components/Board';
 import _ from 'lodash';
 import getData from './logics/data';
 import { ConvertedData } from './logics/convertData';
@@ -182,7 +182,7 @@ function App() {
             }
           </div>
   
-          <Voronoi
+          <Board
             data={data}
             options={options}
             hoveredCell={hoveredCell}
