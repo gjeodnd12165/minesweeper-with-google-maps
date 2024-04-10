@@ -15,41 +15,23 @@ interface Props {
   flaggedCells: number[];
   clickedCells: number[];
   handlers: Handlers;
+
+  voronoi: d3.Voronoi<d3.Delaunay.Point>;
+  adjacentCells: number[][];
+  adjacentMines: number[];
+  xScale: d3.ScaleLinear<number, number, never>;
+  yScale: d3.ScaleLinear<number, number, never>;
 };
 
-const Voronoi = ({ data, options: {width, height}, hoveredCell, mines, flaggedCells, clickedCells, handlers  }: Props): React.JSX.Element => {
-  const xScale = d3.scaleLinear().domain([0, width]).range([0, width]);
-  const yScale = d3.scaleLinear().domain([0, height]).range([0, height]);
-
-  const delaunay:d3.Delaunay<d3.Delaunay.Point> = useMemo(() => {
-    const formattedData: [number, number][] = data.map((d) => [xScale(d.x), yScale(d.y)]);
-    return d3.Delaunay.from(formattedData);
-  }, [data]);
-
-  const voronoi = useMemo(() => {
-    return delaunay.voronoi([0, 0, width, height]);
-  }, [data]);
-
-  
-  const adjacentCells: number[][] = useMemo(() => {
-    return _.range(data.length).map((cell) => {
-      return [...voronoi.neighbors(cell)]
-    });
-  }, [data]);
-  const adjacentMines: number[] = useMemo(() => {
-    return adjacentCells.map((cell) => {
-      return cell.filter((adjs) => (mines.includes(adjs))).length
-    });
-  }, [data]);
+const Voronoi = ({ data, options: {width, height}, hoveredCell, mines, flaggedCells, clickedCells, handlers, voronoi, adjacentCells, adjacentMines, xScale, yScale }: Props): React.JSX.Element => {
 
 
-  
   const voronoiCells = data.map((d, i) => {
     const path = voronoi.renderCell(i);
     const centroid = d3.polygonCentroid(voronoi.cellPolygon(i));
     const isFlagged = flaggedCells.includes(i);
     return (
-      <>
+      <svg>
         <Cell
           id={i}
           path={path}
@@ -57,6 +39,7 @@ const Voronoi = ({ data, options: {width, height}, hoveredCell, mines, flaggedCe
 
           isHovered={i==hoveredCell}
           isAdjacent={adjacentCells[hoveredCell ?? -1]?.includes(i)}
+          isRevealed={clickedCells.includes(i)}
           handlers={handlers}
         >
           <CellImage
@@ -69,14 +52,35 @@ const Voronoi = ({ data, options: {width, height}, hoveredCell, mines, flaggedCe
             isClicked={clickedCells.includes(i)}
           />
         </Cell>
-      </>
+      </svg>
     );
   });
+
+  const filter = (
+    <defs>
+      <filter id="normal">
+        <feGaussianBlur in="SourceAlpha" stdDeviation="10" result="blur1"/>
+        <feSpecularLighting result="specOut" in="blur1" specularConstant="1.2" specularExponent="12" lightingColor="#fff">
+          <feDistantLight azimuth="225" elevation="20"/>
+        </feSpecularLighting>
+        <feComposite in="SourceGraphic" in2="specOut" operator="arithmetic" k1="0" k2="1.2" k3="1.2" k4="0" result="result"/>
+        <feComposite operator="in" in2="SourceGraphic"/>
+      </filter>
+      <filter id="revealed">
+        <feGaussianBlur in="SourceAlpha" stdDeviation="1" result="desenfoque" />
+        <feFlood floodColor="black"/>
+        <feComposite operator="out" in2="SourceGraphic"/>
+        <feGaussianBlur stdDeviation="10"/>
+        <feComposite operator="atop" in2="SourceGraphic"/>
+      </filter>
+    </defs>
+  )
 
 
   return (
     <svg width={width} height={height}>
       {voronoiCells}
+      {filter}
     </svg>
   );
 };

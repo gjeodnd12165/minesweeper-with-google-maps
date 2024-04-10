@@ -11,9 +11,10 @@ module.exports = {
         exclude: /node_modules/,
       },
       {
-        test: /\.svg$/,
-        type: "asset/source",
-      },
+        test: /\.svg$/i,
+        issuer: /\.[jt]sx?$/,
+        use: ['@svgr/webpack'],
+      }
     ],
   },
   resolve: {

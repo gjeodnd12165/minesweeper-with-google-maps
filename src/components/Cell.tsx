@@ -1,5 +1,7 @@
-import React from "react";
+import React, { useContext } from "react";
 import { Handlers } from "../types";
+import { GameContext } from "../context/GameContext";
+import { ThemeContext } from "../context/ThemeContext";
 
 
 interface Props {
@@ -8,33 +10,41 @@ interface Props {
   path: string;
   isHovered: boolean;
   isAdjacent: boolean;
+  isRevealed: boolean;
   handlers: Handlers;
 }
 
-const Cell = ({ children, id, path, isHovered, isAdjacent, handlers: {handleCellHover, handleCellLClick, handleCellRClick} }: Props): React.JSX.Element => {
+const Cell = ({ children, id, path, isHovered, isAdjacent, isRevealed, handlers: {handleCellHover, handleCellLClick, handleDoubleClick, handleCellRClick} }: Props): React.JSX.Element => {
+  const { isGameOver, names } = useContext(GameContext);
+  const { revealedColor, hoveredColor, adjacentColor, normalColor } = useContext(ThemeContext);
 
   const polygon = (
     <path
-    key={`cell/${id}`}
-    d={path}
-    stroke="grey"
-    fill={
-      isHovered ? "grey" :
-      isAdjacent ? "lightgrey" : "transparent"
-    }
-    opacity={0.5}
+      key={`cell/${id}`}
+      d={path}
+      stroke="transparent"
+      fill={
+        isRevealed ? revealedColor :
+        isHovered ? hoveredColor :
+        isAdjacent ? adjacentColor : normalColor
+      }
+      filter={`url(#${isRevealed ? "revealed" : "normal"})`}
     />
   );
 
+
+
   return (
-    <svg
-      onMouseOver={handleCellHover(id)}
-      onClick={handleCellLClick(id)}
-      onContextMenu={handleCellRClick(id)}
+    <g
+      onMouseOver={isGameOver ? undefined : handleCellHover(id)}
+      onClick={isGameOver ? undefined : handleCellLClick(id)}
+      onDoubleClick={isGameOver ? undefined: handleDoubleClick(id)}
+      onContextMenu={isGameOver ? undefined : handleCellRClick(id)}
     >
+      <title>{names[id]}</title>
       {polygon}
       {children}
-    </svg>
+    </g>
   )
 }
 
