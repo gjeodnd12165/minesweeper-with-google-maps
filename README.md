@@ -23,5 +23,6 @@ It's only for me to view how the response looks as of now.
 - Background color
 - positioning components
 - before the board apprears, should pick a location which will be the center of the game.
+- Error handling, Logging
 
 - **emoji is so good. use more!**
