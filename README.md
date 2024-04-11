@@ -7,7 +7,7 @@ You probably don't have a permission for this document.
 It's only for me to view how the response looks as of now.
 ## Todo
 - [ ] make actual minesweeper game with the data
-    - baisc game logic completed
+    - basic game logic completed
         - click to locate -> the address is sent to box
     - visual improvements
         - traditional minesweeper theme
@@ -17,4 +17,11 @@ It's only for me to view how the response looks as of now.
             - reduce use*Something* functions -> consider useContext
 - [x] use the data from overpass api
 
-## BUGS
+### Idea and small improvements
+- Stop game when cleared
+- Cell coloring
+- Background color
+- positioning components
+- before the board apprears, should pick a location which will be the center of the game.
+
+- **emoji is so good. use more!**

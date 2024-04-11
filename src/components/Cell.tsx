@@ -1,8 +1,8 @@
 import React, { useContext } from "react";
-import { parsePath, roundCorners } from "svg-round-corners";
-import { Handlers } from "../types";
+import { roundCorners } from "svg-round-corners";
 import { GameContext } from "../context/GameContext";
 import { ThemeContext } from "../context/ThemeContext";
+import { HandlerContext } from "../context/HandlerContext";
 import getScaledPath from "../logics/scaledPath";
 
 
@@ -15,12 +15,12 @@ interface Props {
   isHovered: boolean;
   isAdjacent: boolean;
   isRevealed: boolean;
-  handlers: Handlers;
 }
 
-const Cell = ({ children, id, path, x, y, isHovered, isAdjacent, isRevealed, handlers: {handleCellHover, handleCellLClick, handleDoubleClick, handleCellRClick} }: Props): React.JSX.Element => {
+const Cell = ({ children, id, path, x, y, isHovered, isAdjacent, isRevealed }: Props): React.JSX.Element => {
   const { isGameOver, names } = useContext(GameContext);
   const { revealedColor, hoveredColor, adjacentColor, normalColor } = useContext(ThemeContext);
+  const { handleCellHover, handleCellLClick, handleCellDoubleClick: handleDoubleClick, handleCellRClick } = useContext(HandlerContext);
 
   let prettyPath = path;
   prettyPath = getScaledPath(prettyPath, x, y, 0.95);

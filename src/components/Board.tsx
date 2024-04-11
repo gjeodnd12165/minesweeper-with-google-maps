@@ -4,17 +4,16 @@ import Cell from "./Cell";
 import * as _ from 'lodash';
 import { CellImage } from "./CellImage";
 import { Handlers, Datum, Options } from "../types";
+import { boardHeight, boardWidth } from "../constants";
 
 
 interface Props {
   data: Datum[];
-  options: Options;
 
   hoveredCell: number | null;
   mines: number[];
   flaggedCells: number[];
-  clickedCells: number[];
-  handlers: Handlers;
+  revealedCells: number[];
 
   voronoi: d3.Voronoi<d3.Delaunay.Point>;
   adjacentCells: number[][];
@@ -23,7 +22,7 @@ interface Props {
   yScale: d3.ScaleLinear<number, number, never>;
 };
 
-const Board = ({ data, options: {width, height}, hoveredCell, mines, flaggedCells, clickedCells, handlers, voronoi, adjacentCells, adjacentMines, xScale, yScale }: Props): React.JSX.Element => {
+const Board = ({ data, hoveredCell, mines, flaggedCells, revealedCells, voronoi, adjacentCells, adjacentMines, xScale, yScale }: Props): React.JSX.Element => {
 
 
   const voronoiCells = data.map((d, i) => {
@@ -40,8 +39,7 @@ const Board = ({ data, options: {width, height}, hoveredCell, mines, flaggedCell
           y={yScale(centroid[1])}
           isHovered={i==hoveredCell}
           isAdjacent={adjacentCells[hoveredCell ?? -1]?.includes(i)}
-          isRevealed={clickedCells.includes(i)}
-          handlers={handlers}
+          isRevealed={revealedCells.includes(i)}
         >
           <CellImage
             id={i}
@@ -50,7 +48,7 @@ const Board = ({ data, options: {width, height}, hoveredCell, mines, flaggedCell
             adjacentMines={adjacentMines[i]}
             hasMine={mines.includes(i)}
             isFlagged={isFlagged}
-            isClicked={clickedCells.includes(i)}
+            isClicked={revealedCells.includes(i)}
           />
         </Cell>
       </>
@@ -60,8 +58,8 @@ const Board = ({ data, options: {width, height}, hoveredCell, mines, flaggedCell
 
 
   return (
-    <svg width={width} height={height} viewBox={`0 0 ${width} ${height}`}>
-      <rect width={width} height={height} fill="transparent"></rect>
+    <svg width={boardWidth} height={boardHeight}>
+      <rect width={boardWidth} height={boardHeight} fill="transparent"></rect>
       {voronoiCells}
     </svg>
   );

@@ -9,16 +9,17 @@ import LocationForm from './components/LocationForm';
 import { Handlers, Options } from './types';
 import * as d3 from 'd3';
 import { GameContext } from './context/GameContext';
+import { areaHeight, areaWidth, mineRate } from './constants';
+import { HandlerContext } from './context/HandlerContext';
 
 
 function App() {
-  const width = 900, height = 900, mineRate = 10;
   const [data, setData] = useState<ConvertedData[] | null>(null);
   const [location, setLocation] = useState<string>("강남역");
   useEffect(() => {
     setData(null);
     const fetchData = async () => {
-      const d: ConvertedData[] = await getData(location, width, height);
+      const d: ConvertedData[] = await getData(location, areaWidth, areaHeight);
       setData(d);
     }
     fetchData();
@@ -45,8 +46,8 @@ function App() {
     return _.isEqual(mines.sort(), flaggedCells.sort());
   }, [mines, flaggedCells]);
 
-  const xScale = d3.scaleLinear().domain([0, width]).range([0, width]);
-  const yScale = d3.scaleLinear().domain([0, height]).range([0, height]);
+  const xScale = d3.scaleLinear().domain([0, areaWidth]).range([0, areaWidth]);
+  const yScale = d3.scaleLinear().domain([0, areaHeight]).range([0, areaHeight]);
 
   const names: string[] = useMemo(() => {
     return data?.map((d) => d.name) ?? ["nodes not found"];
@@ -56,7 +57,7 @@ function App() {
     return d3.Delaunay.from(formattedData);
   }, [data]);
   const voronoi = useMemo(() => {
-    return delaunay.voronoi([0, 0, width, height]);
+    return delaunay.voronoi([0, 0, areaWidth, areaHeight]);
   }, [data]);
 
   const adjacentCells: number[][] = useMemo(() => {
@@ -125,7 +126,7 @@ function App() {
     }
   }
 
-  const handleDoubleClick = (id: number): React.MouseEventHandler<SVGSVGElement> => (e: React.MouseEvent<SVGSVGElement>) => {
+  const handleCellDoubleClick = (id: number): React.MouseEventHandler<SVGSVGElement> => (e: React.MouseEvent<SVGSVGElement>) => {
     if (!revealedCells.includes(id)) return;
     const adjacentFlaggedCells = adjacentCells[id].filter((cellId) => flaggedCells.includes(cellId));
     if (adjacentFlaggedCells.length === adjacentMines[id]) {
@@ -143,19 +144,7 @@ function App() {
     if (revealedCells.includes(id)) return; // 이미 밝혀진 셀이면 깃발 X
     setFlaggedCells(flaggedCells.includes(id) ? flaggedCells.filter((cell) => (id !== cell)) : [...flaggedCells, id]);
   }
-
-  const handlers: Handlers = {
-    handleCellHover: handleCellHover,
-    handleCellLClick: handleCellLClick,
-    handleDoubleClick: handleDoubleClick,
-    handleCellRClick: handleCellRClick
-  }
   /* handlers */
-  
-  const options: Options = {
-    width: width,
-    height: height,
-  }
 
   return (
     <GameContext.Provider value={{
@@ -182,14 +171,18 @@ function App() {
             }
           </div>
   
+          <HandlerContext.Provider value={{
+            handleCellHover: handleCellHover,
+            handleCellLClick: handleCellLClick,
+            handleCellDoubleClick: handleCellDoubleClick,
+            handleCellRClick: handleCellRClick
+          }}>
           <Board
             data={data}
-            options={options}
             hoveredCell={hoveredCell}
             mines={mines}
             flaggedCells={flaggedCells}
-            clickedCells={revealedCells}
-            handlers={handlers}
+            revealedCells={revealedCells}
 
             voronoi={voronoi}
             adjacentCells={adjacentCells}
@@ -197,6 +190,7 @@ function App() {
             xScale={xScale}
             yScale={yScale}
           />
+          </HandlerContext.Provider>
         </>
       )}
     </GameContext.Provider>
