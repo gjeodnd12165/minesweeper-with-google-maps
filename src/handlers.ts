@@ -1,4 +1,4 @@
-const handleCellHoverFactory = (
+export const handleCellHoverFactory = (
   setHoveredCell: React.Dispatch<React.SetStateAction<number | null>>
 ) => 
   (id: number): React.MouseEventHandler<SVGSVGElement> => 
@@ -6,7 +6,7 @@ const handleCellHoverFactory = (
   setHoveredCell(id);
 };
 
-const handleCellLClickFactory = (
+export const handleCellLClickFactory = (
   mines: number[], setMines: React.Dispatch<React.SetStateAction<number[]>>, calcNewMines: () => number[], 
   revealedCells: number[], setRevealedCells: React.Dispatch<React.SetStateAction<number[]>>,
   setIsGameOver: React.Dispatch<React.SetStateAction<boolean>>, adjacentMines: number[], adjacentCells: number[][]
@@ -21,7 +21,7 @@ const handleCellLClickFactory = (
   )(id)
 }
 
-const handleCellDoubleClickFactory = (
+export const handleCellDoubleClickFactory = (
   mines: number[], setMines: React.Dispatch<React.SetStateAction<number[]>>, calcNewMines: () => number[], 
   revealedCells: number[], setRevealedCells: React.Dispatch<React.SetStateAction<number[]>>,
   setIsGameOver: React.Dispatch<React.SetStateAction<boolean>>, adjacentMines: number[], adjacentCells: number[][],
@@ -94,7 +94,7 @@ const revealCell = (
   }
 }
 
-const handleCellRClickFactory = (
+export const handleCellRClickFactory = (
   revealedCells: number[], flaggedCells: number[], setFlaggedCells: React.Dispatch<React.SetStateAction<number[]>>
 ) => 
   (id: number): React.MouseEventHandler<SVGSVGElement> => 

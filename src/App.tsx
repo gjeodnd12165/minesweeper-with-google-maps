@@ -6,11 +6,11 @@ import _ from 'lodash';
 import getData from './logics/data';
 import { ConvertedData } from './logics/convertData';
 import LocationForm from './components/LocationForm';
-import { Handlers, Options } from './types';
 import * as d3 from 'd3';
 import { GameContext } from './context/GameContext';
 import { areaHeight, areaWidth, mineRate } from './constants';
 import { HandlerContext } from './context/HandlerContext';
+import { handleCellHoverFactory, handleCellLClickFactory, handleCellDoubleClickFactory, handleCellRClickFactory } from './handlers';
 
 
 function App() {
@@ -24,20 +24,19 @@ function App() {
     }
     fetchData();
   }, [location]);
+  const xScale = d3.scaleLinear().domain([0, areaWidth]).range([0, areaWidth]);
+  const yScale = d3.scaleLinear().domain([0, areaHeight]).range([0, areaHeight]);
 
   const [revealedCells, setRevealedCells] = useState<number[]> ([]);
   const [flaggedCells, setFlaggedCells] = useState<number[]> ([]);
   const [hoveredCell, setHoveredCell] = useState<number | null>(null);
+
   const [mines, setMines] = useState<number[]>([]);
   const calcNewMines = () => {
     return data ? _.sampleSize(_.range(data.length), data.length / mineRate) : [];
   }
   const [isGameOver, setIsGameOver] = useState<boolean>(false);
-  useEffect(() => {
-    if (isGameOver) {
-      alert("Game Over!");
-    }
-  }, [isGameOver]);
+
 
   useEffect(() => {
     setRevealedCells([]);
@@ -45,24 +44,14 @@ function App() {
     setHoveredCell(null);
     setMines(calcNewMines());
   }, [data]); // data가 재 로딩 되었을 때 실행되는 함수
-  const cleared: boolean = useMemo(() => {
-    return _.isEqual(mines.sort(), flaggedCells.sort());
-  }, [mines, flaggedCells]);
-
-  const xScale = d3.scaleLinear().domain([0, areaWidth]).range([0, areaWidth]);
-  const yScale = d3.scaleLinear().domain([0, areaHeight]).range([0, areaHeight]);
-
   const names: string[] = useMemo(() => {
     return data?.map((d) => d.name) ?? ["nodes not found"];
   }, [data]);
-  const delaunay:d3.Delaunay<d3.Delaunay.Point> = useMemo(() => {
-    const formattedData: [number, number][] = data?.map((d) => [xScale(d.x), yScale(d.y)]) ?? [[0,0]];
-    return d3.Delaunay.from(formattedData);
-  }, [data]);
   const voronoi = useMemo(() => {
+    const formattedData: [number, number][] = data?.map((d) => [xScale(d.x), yScale(d.y)]) ?? [[0,0]];
+    const delaunay = d3.Delaunay.from(formattedData);
     return delaunay.voronoi([0, 0, areaWidth, areaHeight]);
   }, [data]);
-
   const adjacentCells: number[][] = useMemo(() => {
     return _.range(data?.length ?? 0).map((cell) => {
       return [...voronoi.neighbors(cell)]
@@ -72,7 +61,10 @@ function App() {
     return adjacentCells.map((cell) => {
       return cell.filter((adjs) => (mines.includes(adjs))).length
     });
-  }, [mines]);
+  }, [data]);
+  const isCleared: boolean = useMemo(() => {
+    return _.isEqual(mines.sort(), flaggedCells.sort());
+  }, [mines, flaggedCells]);
 
   const handleCellHover = handleCellHoverFactory(setHoveredCell);
   const handleCellLClick = handleCellLClickFactory(
@@ -93,6 +85,7 @@ function App() {
   return (
     <GameContext.Provider value={{
       isGameOver: isGameOver,
+      isCleared: isCleared,
       names: names
     }}>
       <LocationForm
@@ -111,7 +104,9 @@ function App() {
           <div>{mines.length - flaggedCells.length} mines left</div>
           <div>
             {
-              cleared ? "CLEAR!" : "You'll gonna make it!"
+              isCleared ? "CLEAR!" : 
+              isGameOver ? "GAME OVER" :
+              "You'll gonna make it!"
             }
           </div>
   
