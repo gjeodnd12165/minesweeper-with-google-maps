@@ -57,7 +57,7 @@ function App() {
     return adjacentCells.map((cell) => {
       return cell.filter((adjs) => (mines.includes(adjs))).length
     });
-  }, [data]);
+  }, [mines]);
   const isCleared: boolean = useMemo(() => {
     return _.isEqual(mines.sort(), flaggedCells.sort());
   }, [mines, flaggedCells]);
@@ -155,14 +155,22 @@ function App() {
           position={[37.49993, 127.02632]} 
           data={rawData}
           /> */}
-          <button onClick={() => window.location.reload()}>Restart!</button>
-          <div>{mines.length - flaggedCells.length} mines left</div>
-          <div>
-            {
-              isCleared ? "CLEAR!" : 
-              isGameOver ? "GAME OVER" :
-              "You'll gonna make it!"
-            }
+          <div className='StatBox'>
+            <div>{mines.length - flaggedCells.length} mines left</div>
+            <button onClick={() => window.location.reload()}>
+              {
+                isCleared ? "☺️" : 
+                isGameOver ? "🤔" :
+                "🙂"
+              }
+            </button>
+            <div>
+              {
+                isCleared ? "CLEAR!" : 
+                isGameOver ? "GAME OVER" :
+                "You'll gonna make it!"
+              }
+            </div>
           </div>
   
           <HandlerContext.Provider value={{

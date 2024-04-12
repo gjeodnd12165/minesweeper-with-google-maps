@@ -58,8 +58,7 @@ const Board = ({ data, hoveredCell, mines, flaggedCells, revealedCells, voronoi,
 
 
   return (
-    <svg width={boardWidth} height={boardHeight}>
-      <rect width={boardWidth} height={boardHeight} fill="transparent"></rect>
+    <svg width={boardWidth} height={boardHeight} viewBox={`0,0,${boardWidth},${boardHeight}`}>
       {voronoiCells}
     </svg>
   );
