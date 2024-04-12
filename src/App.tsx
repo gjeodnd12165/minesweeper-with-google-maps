@@ -11,6 +11,7 @@ import * as d3 from 'd3';
 import { GameContext } from './context/GameContext';
 import { areaHeight, areaWidth, mineRate } from './constants';
 import { HandlerContext } from './context/HandlerContext';
+import { handleCellHoverFactory, handleCellLClickFactory, handleCellDoubleClickFactory, handleCellRClickFactory } from './handlers';
 
 
 function App() {
