@@ -9,16 +9,17 @@ export interface BBox {
   east: number;
 }
 
-interface Location {
-  latitude: number;
-  longitude: number;
-}
+// lat, lon
+type Location = [number, number];
+
+let center: Location;
+let rectBounds: BBox;
 
 // OpenStreetMap API를 사용하여 주소로부터 위도와 경도를 가져오는 함수
 async function getCoordinates(address: string): Promise<Location> {
   const response = await axios.get(`https://nominatim.openstreetmap.org/search?q=${address}&format=json`);
   const { lat, lon } = response.data[0]; // 가장 상위 검색 결과
-  return { latitude: parseFloat(lat), longitude: parseFloat(lon) };
+  return [ parseFloat(lat), parseFloat(lon) ];
 }
 
 // Overpass API를 사용하여 주어진 좌표 주변의 건물 및 도로 정보를 가져오는 함수
@@ -36,10 +37,10 @@ async function getNearbyData(rectBounds: BBox): Promise<JSON> {
 }
 
 function getBoundsAroundLocation(location: Location, radiusMeters: number): BBox{
-  const south: number = location.latitude - radiusMeters / 111320 
-  const west: number = location.longitude - radiusMeters / (111320 * Math.cos(location.latitude * Math.PI / 180));
-  const north: number = location.latitude + radiusMeters / 111320;
-  const east: number = location.longitude + radiusMeters / (111320 * Math.cos(location.latitude * Math.PI / 180));
+  const south: number = center[0] - radiusMeters / 111320 
+  const west: number = center[1] - radiusMeters / (111320 * Math.cos(center[0] * Math.PI / 180));
+  const north: number = center[0] + radiusMeters / 111320;
+  const east: number = center[1] + radiusMeters / (111320 * Math.cos(center[0] * Math.PI / 180));
 
   return {
     south: south,
@@ -52,8 +53,8 @@ function getBoundsAroundLocation(location: Location, radiusMeters: number): BBox
 // 메인 함수
 async function getNodes(address: string): Promise<GeoJSON.FeatureCollection> {
   // 주소로부터 위도와 경도를 가져옴
-  const location: Location = await getCoordinates(address);
-  const rectBounds: BBox = getBoundsAroundLocation(location, 200);
+  center = await getCoordinates(address);
+  rectBounds = getBoundsAroundLocation(center, 200);
   // 주어진 좌표 주변의 건물 및 도로 정보를 가져옴
   const nearbyData: JSON = (await getNearbyData(rectBounds));
   // convert osm data to geojson
@@ -65,4 +66,8 @@ async function getNodes(address: string): Promise<GeoJSON.FeatureCollection> {
   return geoJsonData;
 }
 
-export default getNodes;
+export {
+  rectBounds,
+  center,
+  getNodes
+};

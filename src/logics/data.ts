@@ -1,9 +1,16 @@
 import getConvertedData from "./convertData";
-import getNodes from "./nodes";
+import { center, getNodes, rectBounds } from "./nodes";
+
+let rawData: GeoJSON.FeatureCollection;
 
 async function getData(address: string, width: number, height: number) {
-  const rawData: GeoJSON.FeatureCollection = await getNodes(address);
+  rawData = await getNodes(address);
   return getConvertedData(rawData, width, height);
 }
 
-export default getData;
+export {
+  rectBounds,
+  center,
+  rawData,
+  getData
+};
