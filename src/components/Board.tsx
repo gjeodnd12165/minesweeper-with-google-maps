@@ -1,9 +1,8 @@
-import React, { useMemo, useState } from "react";
+import React from "react";
 import * as d3 from "d3";
 import Cell from "./Cell";
-import * as _ from 'lodash';
 import { CellImage } from "./CellImage";
-import { Handlers, Datum, Options } from "../types";
+import { Datum } from "../types";
 import { boardHeight, boardWidth } from "../constants";
 
 
@@ -37,7 +36,7 @@ const Board = ({ data, hoveredCell, mines, flaggedCells, revealedCells, voronoi,
 
           x={xScale(centroid[0])}
           y={yScale(centroid[1])}
-          isHovered={i==hoveredCell}
+          isHovered={i===hoveredCell}
           isAdjacent={adjacentCells[hoveredCell ?? -1]?.includes(i)}
           isRevealed={revealedCells.includes(i)}
         >

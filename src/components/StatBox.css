@@ -1,0 +1,21 @@
+div.StatBox {
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+  max-width: 900;
+}
+div.StatBox * {
+  font-size: 30px;
+}
+div.StatBox button {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translate(-50%, 0);
+  background-color: transparent;
+  border-width: 0;
+  padding: 0;
+}
+div.StatBox button:hover {
+  cursor:pointer;
+}

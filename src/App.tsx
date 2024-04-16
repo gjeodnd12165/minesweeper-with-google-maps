@@ -2,8 +2,9 @@ import React, { useEffect, useMemo, useState } from 'react';
 import './App.css';
 import Map from './components/Map';
 import Board from './components/Board';
+import StatBox from './components/StatBox';
 import _ from 'lodash';
-import getData from './logics/data';
+import { rawData, getData, center } from './logics/data';
 import { ConvertedData } from './logics/convertData';
 import LocationForm from './components/LocationForm';
 import * as d3 from 'd3';
@@ -47,17 +48,17 @@ function App() {
     const formattedData: [number, number][] = data?.map((d) => [xScale(d.x), yScale(d.y)]) ?? [[0,0]];
     const delaunay = d3.Delaunay.from(formattedData);
     return delaunay.voronoi([0, 0, areaWidth, areaHeight]);
-  }, [data]);
+  }, [data, xScale, yScale]);
   const adjacentCells: number[][] = useMemo(() => {
     return _.range(data?.length ?? 0).map((cell) => {
       return [...voronoi.neighbors(cell)]
     });
-  }, [data]);
+  }, [data, voronoi]);
   const adjacentMines: number[] = useMemo(() => {
     return adjacentCells.map((cell) => {
       return cell.filter((adjs) => (mines.includes(adjs))).length
     });
-  }, [mines]);
+  }, [mines, adjacentCells]);
   const isCleared: boolean = useMemo(() => {
     return _.isEqual(mines.sort(), flaggedCells.sort());
   }, [mines, flaggedCells]);
@@ -65,13 +66,11 @@ function App() {
   /* handlers */
   const handleCellHover = (id: number): React.MouseEventHandler<SVGSVGElement> => (e: React.MouseEvent<SVGSVGElement>) => {
     setHoveredCell(id);
-  };
-
+  }
   const handleCellLClick = (clickedCell: number): React.MouseEventHandler<SVGSVGElement> => (e: React.MouseEvent<SVGSVGElement>) => {
     if (revealedCells.includes(clickedCell)) return;
     revealCell(clickedCell);
   }
-
   const revealCell = (clickedCell: number) => {
     if (mines.includes(clickedCell)) {
       if (!revealedCells.length) {
@@ -116,7 +115,6 @@ function App() {
       setRevealedCells([...visited]);
     }
   }
-
   const handleCellDoubleClick = (id: number): React.MouseEventHandler<SVGSVGElement> => (e: React.MouseEvent<SVGSVGElement>) => {
     if (!revealedCells.includes(id)) return;
     const adjacentFlaggedCells = adjacentCells[id].filter((cellId) => flaggedCells.includes(cellId));
@@ -128,7 +126,6 @@ function App() {
         })
     }
   }
-
   const handleCellRClick = (id: number): React.MouseEventHandler<SVGSVGElement> => (e: React.MouseEvent<SVGSVGElement>) => {
     e.preventDefault();
     // 깃발이 있으면 빼고, 없으면 넣기
@@ -151,27 +148,11 @@ function App() {
         <text fontSize={50}>LOADING...</text>
       ) : (
         <>
-          {/* <Map 
-          position={[37.49993, 127.02632]} 
+          <Map 
+          position={center} 
           data={rawData}
-          /> */}
-          <div className='StatBox'>
-            <div>{mines.length - flaggedCells.length} mines left</div>
-            <button onClick={() => window.location.reload()}>
-              {
-                isCleared ? "☺️" : 
-                isGameOver ? "🤔" :
-                "🙂"
-              }
-            </button>
-            <div>
-              {
-                isCleared ? "CLEAR!" : 
-                isGameOver ? "GAME OVER" :
-                "You'll gonna make it!"
-              }
-            </div>
-          </div>
+          />
+          <StatBox remainingMines={mines.length - flaggedCells.length}></StatBox>
   
           <HandlerContext.Provider value={{
             handleCellHover: handleCellHover,
