@@ -1,10 +1,9 @@
-import React, { useState } from 'react';
+import React from 'react';
 import './Map.css';
 import 'leaflet/dist/leaflet.css';
 import { MapContainer, TileLayer, Marker, Popup, Rectangle } from 'react-leaflet';
 import * as L from 'leaflet';
 import { rectBounds } from '../logics/nodes';
-import { Accordion } from 'react-bootstrap';
 
 
 interface Props {
@@ -13,12 +12,7 @@ interface Props {
 }
 
 const Map: React.FC<Props> = ({ position, data }: Props) => {
-  const [show, setShow] = useState(false);
-
-  const handleClose = () => setShow(false);
-  const handleShow = () => setShow(true);
-
-  const MapBody = (
+  return (
     <MapContainer 
     id="map"
     center={position} 
@@ -56,19 +50,6 @@ const Map: React.FC<Props> = ({ position, data }: Props) => {
       }
     </MapContainer>
   )
-  
-  return (
-    <>
-      <Accordion defaultActiveKey='0'>
-        <Accordion.Item eventKey='0'>
-          <Accordion.Header>지도</Accordion.Header>
-          <Accordion.Body style={{padding: 0}}>
-            <div>{MapBody}</div>
-          </Accordion.Body>
-        </Accordion.Item>
-      </Accordion>
-    </>
-  );
 }
 
 export default Map;

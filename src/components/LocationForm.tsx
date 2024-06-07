@@ -1,15 +1,11 @@
 import React, { useRef } from "react";
-import { Button, Form, InputGroup } from "react-bootstrap";
-import { useData } from "../hooks/useData";
 
 interface Props {
   location: string;
   setLocation: React.Dispatch<React.SetStateAction<string>>
 }
 
-const LocationForm = (): React.JSX.Element => {
-  const { location, setLocation } = useData();
-
+const LocationForm = ({location, setLocation}: Props): React.JSX.Element => {
   const inputRef = useRef<HTMLInputElement>(null);
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -17,17 +13,15 @@ const LocationForm = (): React.JSX.Element => {
     setLocation(newLocation);
   }
   return (
-    <Form onSubmit={handleSubmit}>
-      <InputGroup>
-        <Form.Control 
-          type="text" 
-          ref={inputRef}
-          name="location"
-          defaultValue={location}
-        />
-        <Button type="submit">찾기</Button>
-      </InputGroup>
-    </Form>
+    <form onSubmit={handleSubmit}>
+      <input 
+        type="text" 
+        ref={inputRef}
+        name="location"
+        defaultValue={location}
+      />
+      <button type="submit">찾기</button>
+    </form>
   )
 }
 
