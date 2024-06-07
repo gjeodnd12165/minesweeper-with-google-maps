@@ -4,10 +4,14 @@ import Cell from "./Cell";
 import { CellImage } from "./CellImage";
 import { Datum } from "../types";
 import { boardHeight, boardWidth } from "../constants";
+import { useData } from "../hooks/useData";
+import { useVoronoi } from "../hooks/useVoronoi";
+import { useCell } from "../hooks/useCell";
+import { useMine } from "../hooks/useMine";
 
 
 interface Props {
-  data: Datum[];
+  data: Datum[] | null;
 
   hoveredCell: number | null;
   mines: number[];
@@ -21,15 +25,18 @@ interface Props {
   yScale: d3.ScaleLinear<number, number, never>;
 };
 
-const Board = ({ data, hoveredCell, mines, flaggedCells, revealedCells, voronoi, adjacentCells, adjacentMines, xScale, yScale }: Props): React.JSX.Element => {
+const Board = (): React.JSX.Element => {
+  const { data } = useData();
+  const { voronoi, xScale, yScale } = useVoronoi();
+  const { flaggedCells, adjacentCells, revealedCells, hoveredCell } = useCell();
+  const { mines, adjacentMines } = useMine();
 
-
-  const voronoiCells = data.map((d, i) => {
+  const voronoiCells = data!.map((d, i) => {
     const path = voronoi.renderCell(i);
     const centroid = d3.polygonCentroid(voronoi.cellPolygon(i));
     const isFlagged = flaggedCells.includes(i);
     return (
-      <>
+      <React.Fragment key={i}>
         <Cell
           id={i}
           path={path}
@@ -50,7 +57,7 @@ const Board = ({ data, hoveredCell, mines, flaggedCells, revealedCells, voronoi,
             isClicked={revealedCells.includes(i)}
           />
         </Cell>
-      </>
+      </React.Fragment>
     );
   });
 

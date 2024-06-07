@@ -1,13 +1,11 @@
-import React, { useContext } from "react"
-import { GameContext } from "../context/GameContext";
+import React, { useMemo } from "react"
 import './StatBox.css';
+import { useMine } from "../hooks/useMine";
+import { useGame } from "../hooks/useGame";
 
-interface Props {
-  remainingMines: number
-}
-
-const StatBox = ({ remainingMines }: Props) => {
-  const { isCleared, isGameOver } = useContext(GameContext);
+const StatBox = () => {
+  const { remainingMines } = useMine();
+  const { isCleared, isGameOver } = useGame();
 
   return (
     <div className='StatBox'>
