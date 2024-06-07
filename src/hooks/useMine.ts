@@ -3,12 +3,11 @@ import { useData } from "./useData";
 import { mineRate } from "../constants";
 import _ from "lodash";
 import { useCell } from "./useCell";
+import { ConvertedData } from "../logics/convertData";
 
 // need to change to other name
-export const useMine = () => {
-  const { data } = useData();
+export const useMine = (data: ConvertedData[] | null, adjacentCells: number[][], flaggedCells: number[]) => {
   const [mines, setMines] = useState<number[]>([]);
-  const { adjacentCells, flaggedCells } = useCell();
 
   useEffect(() => {
     setMines(data ? _.sampleSize(_.range(data.length), data.length / mineRate) : []);
@@ -24,5 +23,11 @@ export const useMine = () => {
     });
   }, [mines, adjacentCells]);
 
-  return { mines, remainingMines, adjacentMines, setMines };
+  const isCleared: boolean = useMemo(() => {
+    return _.isEqual(mines.sort(), flaggedCells.sort());
+  }, [mines, flaggedCells]);
+
+  return { mines, remainingMines, adjacentMines, isCleared, setters: {
+    setMines,
+  }};
 }

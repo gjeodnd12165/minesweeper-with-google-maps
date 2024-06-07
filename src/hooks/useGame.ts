@@ -1,17 +1,12 @@
-import { useMemo, useState } from "react";
-import { useMine } from "./useMine";
-import { useCell } from "./useCell";
+import { useMemo, useState, useEffect } from "react";
 import _ from "lodash";
 
-export const useGame = () => {
+export const useGame = (mines: number[], flaggedCells: number[]) => {
   const [isGameOver, setIsGameOver] = useState<boolean>(false);
-
-  const { mines } = useMine();
-  const { flaggedCells } = useCell();
 
   const isCleared: boolean = useMemo(() => {
     return _.isEqual(mines.sort(), flaggedCells.sort());
   }, [mines, flaggedCells]);
 
-  return { isGameOver, isCleared, setIsGameOver };
-}
+  return { isGameOver, isCleared, setters: { setIsGameOver } };
+};

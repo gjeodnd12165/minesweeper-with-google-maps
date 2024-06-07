@@ -17,6 +17,9 @@ It's only for me to view how the response looks as of now.
             - reduce use*Something* functions -> consider useContext
 - [x] use the data from overpass api
 
+- [ ] clean patched custom hooks - look ugly
+- [ ] re-style the components - use styled-components?
+
 ### Idea and small improvements
 - Stop game when cleared
 - Cell coloring
